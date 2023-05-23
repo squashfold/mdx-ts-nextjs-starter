@@ -1,17 +1,18 @@
 import { useCallback, useRef, useState } from 'react'
 import Link from 'next/link'
-// import styles from './search.module.css'
+import PostGrid from './PostGrid'
 
 export default function Search() {
 
   const searchRef = useRef(null)
   const [query, setQuery] = useState('')
   const [active, setActive] = useState(false)
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState<any[]>([])
 
   const searchEndpoint = (query) => `/api/search?q=${query}`
 
   const onChange = useCallback((event) => {
+    // TODO: show all posts if no search is set
     const query = event.target.value;
     setQuery(query)
     if (query.length) {
@@ -37,6 +38,8 @@ export default function Search() {
     }
   }, [])
 
+  console.log(results);
+
   return (
     <div ref={searchRef}>
       <input
@@ -47,15 +50,16 @@ export default function Search() {
         value={query}
       />
       { active && results.length > 0 && (
-        <ul>
-          {results.map(({ id, title }) => (
-            <li key={id}>
-              <Link href="/posts/[id]" as={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <PostGrid posts={results} />
+        // <ul>
+        //   {results.map(({ id, title }) => (
+        //     <li key={id}>
+        //       <Link href="/posts/[id]" as={`/posts/${id}`}>
+        //         <a>{title}</a>
+        //       </Link>
+        //     </li>
+        //   ))}
+        // </ul>
       ) }
     </div>
   )

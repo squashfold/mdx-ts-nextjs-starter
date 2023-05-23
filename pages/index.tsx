@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Thumbnail from '../components/Thumbnail';
+import PostGrid from '../components/PostGrid';
 import Hero from '../components/Hero';
 import type { NextPage, GetStaticProps } from 'next'
 import { IPost } from "../types/post";
@@ -13,7 +14,7 @@ type Props = {
 
 // component render function
 const Home: NextPage<Props> = ({ posts }: Props) => {
-  // const heroPost = posts[0]
+
   const totalPosts = posts.length;
 
   const [morePosts, setMorePosts] = useState(posts.slice(0, 1));
@@ -32,7 +33,8 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
       <Hero title="Welcome to my blog" text="This is where I write stuff" headingLevel="h1" />
 
       <h2 className="">Articles</h2>
-      <div>
+      <PostGrid posts={morePosts} />
+      {/* <div>
         {morePosts.map((post) => (
           <div key={post.slug}>
             <div> 
@@ -52,7 +54,7 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
             <p>{post.description}</p>
           </div>
         ))}
-      </div>
+      </div> */}
 
       <div>
         {morePosts.length} of {totalPosts} posts

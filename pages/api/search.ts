@@ -15,9 +15,9 @@ type Props = {
 }
 
 export default (req, res) => {
-  const query = req.query.q.toLowerCase();
+  const query = req.query.q ? req.query.q.toLowerCase() : '';
   const results = req.query.q ?
-    posts.filter(post => post.title.toLowerCase().includes(query)) : []
+    posts.filter(post => post.title.toLowerCase().includes(query)) : posts
   res.statusCode = 200
   res.setHeader('Content-Type', 'application/json')
   res.end(JSON.stringify({ results }))

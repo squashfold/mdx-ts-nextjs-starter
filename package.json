@@ -31,5 +31,6 @@
     "hooks": {
       "pre-commit": "npm cache-posts"
     }
-  }
+  },
+  "version": "0.2.0"
 }
