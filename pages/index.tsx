@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Thumbnail from '../components/Thumbnail';
+import Hero from '../components/Hero';
 import type { NextPage, GetStaticProps } from 'next'
 import { IPost } from "../types/post";
 import Link from 'next/link'
@@ -28,14 +29,13 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
 
   return (
     <div className="container">
-      <h1 className="">Articles</h1>
+      <Hero title="Welcome to my blog" text="This is where I write stuff" headingLevel="h1" />
 
-      
-
-      <div className="">
+      <h2 className="">Articles</h2>
+      <div>
         {morePosts.map((post) => (
           <div key={post.slug}>
-            <div className=""> 
+            <div> 
               <Thumbnail
                 slug={post.slug}
                 title={post.title}
@@ -43,7 +43,7 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
               />
             </div>
 
-            <h2 className="">
+            <h2>
               <Link href={`/posts/${post.slug}`}>
                 <a>{post.title}</a>
               </Link>
@@ -54,15 +54,13 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
         ))}
       </div>
 
+      <div>
+        {morePosts.length} of {totalPosts} posts
 
-
-          <div>
-            {morePosts.length} of {totalPosts} posts
-
-            {((morePosts.length) <= totalPosts) && (
-              <button onClick={(event) => handleClick(event, 3)} className="button">Load more</button>
-            )}
-          </div>
+        {((morePosts.length) <= totalPosts) && (
+          <button onClick={(event) => handleClick(event, 3)} className="button">Load more</button>
+        )}
+      </div>
 
     </div>
   )

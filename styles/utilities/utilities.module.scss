@@ -1,0 +1,10 @@
+.hidden {
+    display: none;
+}
+
+.visually-hidden {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: -200vw;
+}

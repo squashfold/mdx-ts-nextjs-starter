@@ -22,7 +22,7 @@ const components = {
 const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
 
     return (
-        <div>
+        <div className="container">
 
             <article className="">
                 <div className="">
