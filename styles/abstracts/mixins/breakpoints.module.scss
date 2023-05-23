@@ -1,0 +1,19 @@
+// Media queries
+
+@mixin min-screen($size) {
+	@media screen and (min-width: ceil($size + 1)) {
+		@content;
+	}
+}
+  
+@mixin max-screen($size) {
+	@media screen and (max-width: $size) {
+		@content;
+	}
+}
+
+@mixin minmax-screen($min, $max) {
+	@media screen and (min-width: ceil($min + 1)) and (max-width: $max) {
+		@content;
+	}
+}

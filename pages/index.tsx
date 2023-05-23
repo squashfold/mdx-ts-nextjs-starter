@@ -13,13 +13,13 @@ type Props = {
 const Home: NextPage<Props> = ({ posts }: Props) => {
   console.log(posts);
   return (
-    <div>
+    <div className="container">
       <h1 className="">Articles</h1>
 
       <div className="">
         {posts.map((post) => (
           <div key={post.slug}>
-            <div className="mb-4"> 
+            <div className=""> 
               <Thumbnail
                 slug={post.slug}
                 title={post.title}

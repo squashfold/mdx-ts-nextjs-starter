@@ -1,0 +1,6 @@
+@import '../abstracts/variables/structure.module.scss';
+
+.container {
+    max-width: $content-max-width;
+    margin: 0 auto;
+}

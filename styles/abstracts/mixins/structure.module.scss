@@ -1,0 +1,11 @@
+@mixin container {
+	width: 100%;
+	position: relative;
+	max-width: $content-max-width;
+	margin: 0 auto;
+	padding: 0 $indent__l;
+
+    @include min-screen($screen__lg) {
+		padding: 0 $indent__2xl;
+    }
+}

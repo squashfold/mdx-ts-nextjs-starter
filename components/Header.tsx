@@ -6,11 +6,21 @@ const Header: React.FC = () => {
 
     return (
         // header value
-        <header className="">
+        <header className="container">
 
         <Link href="/">
-            <a className="">My Simple Blog App</a>
+            <a className="">TypeScript MDX Blog Starter</a>
         </Link>
+
+        <nav>
+            <ul>
+                <li>
+                <Link href="/about">
+                    <a className="">About</a>
+                </Link>
+                </li>
+            </ul>
+        </nav>
         </header>
     )
     

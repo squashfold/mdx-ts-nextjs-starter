@@ -9,10 +9,10 @@ import {
   } from 'react';
   
   type ContextProps = {
-    prerequisites: string[];
-    setPrerequisites: Dispatch<SetStateAction<string[]>>;
-    tags: string[];
-    setTags: Dispatch<SetStateAction<string[]>>;
+    prerequisites?: string[];
+    setPrerequisites?: Dispatch<SetStateAction<string[]>>;
+    tags?: string[];
+    setTags?: Dispatch<SetStateAction<string[]>>;
   };
   
   type Props = {
