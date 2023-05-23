@@ -1,0 +1,1 @@
+export const posts = [{"id":"getting-starta","title":"Typescript Test Post"},{"id":"getting-started-copy","title":"Getting started in Next.js with TypeScript 2"},{"id":"getting-started","title":"Getting started in Next.js with TypeScript"}]

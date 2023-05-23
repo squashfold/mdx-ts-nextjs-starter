@@ -5,11 +5,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cache-posts": "node cache/cache.ts"
   },
   "dependencies": {
     "autoprefixer": "^10.4.0",
     "gray-matter": "^4.0.3",
+    "husky": "^8.0.3",
     "next": "12.0.4",
     "next-mdx-remote": "^3.0.7",
     "postcss": "^8.4.1",
@@ -24,5 +26,10 @@
     "eslint-config-next": "12.0.4",
     "sass": "^1.62.1",
     "typescript": "4.5.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm cache-posts"
+    }
   }
 }
