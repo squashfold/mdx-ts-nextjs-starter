@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Thumbnail from '../components/Thumbnail';
 import type { NextPage, GetStaticProps } from 'next'
 import { IPost } from "../types/post";
@@ -11,13 +12,28 @@ type Props = {
 
 // component render function
 const Home: NextPage<Props> = ({ posts }: Props) => {
-  console.log(posts);
+  // const heroPost = posts[0]
+  const totalPosts = posts.length;
+
+  const [morePosts, setMorePosts] = useState(posts.slice(0, 1));
+
+  const handleClick = (event, toShow: number) => {
+    let postsToShow = morePosts.length + toShow;
+    setMorePosts(posts.slice(0, postsToShow))
+  
+    if (totalPosts >= morePosts.length) {
+      event.target.classList.add("hidden");
+    }
+  }
+
   return (
     <div className="container">
       <h1 className="">Articles</h1>
 
+      
+
       <div className="">
-        {posts.map((post) => (
+        {morePosts.map((post) => (
           <div key={post.slug}>
             <div className=""> 
               <Thumbnail
@@ -37,6 +53,17 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
           </div>
         ))}
       </div>
+
+
+
+          <div>
+            {morePosts.length} of {totalPosts} posts
+
+            {((morePosts.length) <= totalPosts) && (
+              <button onClick={(event) => handleClick(event, 3)} className="button">Load more</button>
+            )}
+          </div>
+
     </div>
   )
 }
