@@ -1,13 +1,13 @@
 import {useMdxComponentsContext} from "../context/mdxContext";
 
 
-const Stacks: React.FC = () => {
-    const stacks = useMdxComponentsContext().stacks;
+const Tags: React.FC = () => {
+    const tags = useMdxComponentsContext().tags;
     return (
         <>
-        <h2>Stacks</h2>
+        <h2>Tags</h2>
         <ol>
-            {stacks.map((stack, index) => (
+            {tags.map((stack, index) => (
             <li key={index}>{stack}</li>
             ))}
         </ol>
@@ -15,4 +15,4 @@ const Stacks: React.FC = () => {
     )
 }
 
-export default Stacks;
+export default Tags;

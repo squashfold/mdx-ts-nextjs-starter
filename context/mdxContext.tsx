@@ -11,8 +11,8 @@ import {
   type ContextProps = {
     prerequisites: string[];
     setPrerequisites: Dispatch<SetStateAction<string[]>>;
-    stacks: string[];
-    setStacks: Dispatch<SetStateAction<string[]>>;
+    tags: string[];
+    setTags: Dispatch<SetStateAction<string[]>>;
   };
   
   type Props = {
@@ -23,15 +23,15 @@ import {
   
   export function MdxComponentsProvider({ children }: Props): ReactElement {
     const [prerequisites, setPrerequisites] = useState<string[]>([]);
-    const [stacks, setStacks] = useState<string[]>([]);
+    const [tags, setTags] = useState<string[]>([]);
   
     return (
       <MdxComponentsContext.Provider
         value={{
           prerequisites,
           setPrerequisites,
-          stacks,
-          setStacks,
+          tags,
+          setTags,
         }}
       >
         {children}

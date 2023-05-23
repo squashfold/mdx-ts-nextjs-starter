@@ -5,5 +5,5 @@ export interface IPost {
     title:string;
     description:string;
     prerequisites:string[];
-    stacks:string[];
+    tags:string[];
 }

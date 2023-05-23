@@ -14,9 +14,9 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
   console.log(posts);
   return (
     <div>
-      <h1 className="text-4xl font-bold mb-4">Technical articles</h1>
+      <h1 className="">Articles</h1>
 
-      <div className="space-y-12">
+      <div className="">
         {posts.map((post) => (
           <div key={post.slug}>
             <div className="mb-4"> 
@@ -27,7 +27,7 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
               />
             </div>
 
-            <h2 className="text-2xl font-bold mb-4">
+            <h2 className="">
               <Link href={`/posts/${post.slug}`}>
                 <a>{post.title}</a>
               </Link>

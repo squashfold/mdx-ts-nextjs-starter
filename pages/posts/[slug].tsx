@@ -9,7 +9,7 @@ import { IPost } from '../../types/post';
 import { getPost, getAllPosts } from '../../utils/mdxUtils';
 import Prerequisites from '../../components/Prerequisites';
 import { ParsedUrlQuery } from 'querystring';
-import Stacks from '../../components/Stacks';
+import Tags from '../../components/Tags';
 import GistEmbed from '../../components/GistEmbed';
 
 // props type
@@ -21,25 +21,25 @@ type Props = {
 // components to render
 const components = {
     Prerequisites,
-    Stacks,
+    Tags,
     GistEmbed,
 }
 
 const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
 
     // get setters
-    const { setPrerequisites, setStacks } = useMdxComponentsContext();
+    const { setPrerequisites, setTags } = useMdxComponentsContext();
 
     useEffect(() => {
         // set prerequisites
         setPrerequisites(frontMatter.prerequisites);
-        // set stacks
-        setStacks(frontMatter.stacks);
+        // set tags
+        setTags(frontMatter.tags);
     }, [
         setPrerequisites,
-        setStacks,
+        setTags,
         frontMatter.prerequisites,
-        frontMatter.stacks
+        frontMatter.tags
     ]);
 
     console.log(components);
