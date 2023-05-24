@@ -7,7 +7,7 @@ const Tags: React.FC = () => {
         <>
         <h2>Tags</h2>
         <ol>
-            {tags.map((stack, index) => (
+            {tags?.map((stack, index) => (
             <li key={index}>{stack}</li>
             ))}
         </ol>

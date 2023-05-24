@@ -3,13 +3,13 @@ import PostGrid from './PostGrid'
 
 export default function Search() {
 
-  const searchRef = useRef(null)
+  const searchRef = useRef<HTMLInputElement>(null)
   const [query, setQuery] = useState('')
   const [active, setActive] = useState(false)
   const [results, setResults] = useState<any[]>([])
   const [loaded, setLoaded] = useState<boolean>(false)
 
-  const searchEndpoint = (query) => `/api/search?q=${query}`
+  const searchEndpoint = (query: string) => `/api/search?q=${query}`
 
   const getResults = (query: string) => {
     fetch(searchEndpoint(query))

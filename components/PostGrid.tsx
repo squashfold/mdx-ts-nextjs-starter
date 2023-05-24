@@ -1,5 +1,6 @@
 import Thumbnail from '../components/Thumbnail';
 import Link from 'next/link'
+import type Keyable from '../interfaces/keyable'
 
 // Hero properties
 type Props = {
@@ -13,7 +14,7 @@ const PostGrid: React.FC<Props> = ({ posts }: Props) => {
     return (
         <>
             <div>
-                {posts.map((post) => (
+                {posts.map((post: Keyable) => (
                     <div key={post.slug}>
                     <div> 
                         <Thumbnail

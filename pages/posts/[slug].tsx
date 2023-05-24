@@ -32,9 +32,9 @@ const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
 
     useEffect(() => {
         // set prerequisites
-        setPrerequisites(frontMatter.prerequisites);
+        setPrerequisites!(frontMatter.prerequisites);
         // set tags
-        setTags(frontMatter.tags);
+        setTags!(frontMatter.tags);
     }, [
         setPrerequisites,
         setTags,

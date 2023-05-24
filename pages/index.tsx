@@ -19,12 +19,12 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
 
   const [morePosts, setMorePosts] = useState(posts.slice(0, 1));
 
-  const handleClick = (event, toShow: number) => {
+  const handleClick = (event: any, toShow: number) => {
     let postsToShow = morePosts.length + toShow;
     setMorePosts(posts.slice(0, postsToShow))
   
     if (totalPosts >= morePosts.length) {
-      event.target.classList.add("hidden");
+      event.target?.classList.add("hidden");
     }
   }
 

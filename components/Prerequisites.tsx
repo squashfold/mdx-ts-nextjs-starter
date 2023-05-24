@@ -8,7 +8,7 @@ const Prerequisites: React.FC = () => {
         <>
         <h2>Prerequisites</h2>
         <ol>
-            {prerequisites.map((prerequisite, index) => (
+            {prerequisites?.map((prerequisite, index) => (
             <li key={index}>{prerequisite}</li>
             ))}
         </ol>
