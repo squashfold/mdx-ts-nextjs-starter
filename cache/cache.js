@@ -14,7 +14,9 @@ function postData() {
     const matterResult = matter(fileContents)
     return {
       id,
-      title: matterResult.data.title
+      title: matterResult.data.title,
+      thumbnail: matterResult.data.thumbnail,
+      slug: matterResult.data.slug
     }
   })
   return `export const posts = ${JSON.stringify(posts)}`
