@@ -1,5 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
-import Link from 'next/link'
+import { useCallback, useRef, useState, useEffect } from 'react'
 import PostGrid from './PostGrid'
 
 export default function Search() {
@@ -8,22 +7,35 @@ export default function Search() {
   const [query, setQuery] = useState('')
   const [active, setActive] = useState(false)
   const [results, setResults] = useState<any[]>([])
+  const [loaded, setLoaded] = useState<boolean>(false)
 
   const searchEndpoint = (query) => `/api/search?q=${query}`
 
+  const getResults = (query: string) => {
+    fetch(searchEndpoint(query))
+    .then(res => res.json())
+    .then(res => {
+      setResults(res.results)
+      console.log(res.results)
+    })
+
+    // replace this with the code below if you don't want to show all posts when nothing is input
+  
+    // if (query.length) {
+    //   fetch(searchEndpoint(query))
+    //     .then(res => res.json())
+    //     .then(res => {
+    //       setResults(res.results)
+    //     })
+    // } else {
+    //   setResults([])
+    // }
+  }
+
   const onChange = useCallback((event) => {
-    // TODO: show all posts if no search is set
     const query = event.target.value;
     setQuery(query)
-    if (query.length) {
-      fetch(searchEndpoint(query))
-        .then(res => res.json())
-        .then(res => {
-          setResults(res.results)
-        })
-    } else {
-      setResults([])
-    }
+    getResults(query)
   }, [])
 
   const onFocus = useCallback(() => {
@@ -38,9 +50,15 @@ export default function Search() {
     }
   }, [])
 
-  console.log(results);
+  useEffect(() => {
+    if (!loaded) {
+      getResults(query)
+      setLoaded(true)
+    }
+  });
 
   return (
+    
     <div ref={searchRef}>
       <input
         onChange={onChange}
@@ -49,17 +67,8 @@ export default function Search() {
         type='text'
         value={query}
       />
-      { active && results.length > 0 && (
+      { results.length > 0 && (
         <PostGrid posts={results} />
-        // <ul>
-        //   {results.map(({ id, title }) => (
-        //     <li key={id}>
-        //       <Link href="/posts/[id]" as={`/posts/${id}`}>
-        //         <a>{title}</a>
-        //       </Link>
-        //     </li>
-        //   ))}
-        // </ul>
       ) }
     </div>
   )

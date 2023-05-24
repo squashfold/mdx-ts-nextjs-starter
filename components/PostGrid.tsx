@@ -7,9 +7,9 @@ type Props = {
 }
 
 
-const Hero: React.FC<Props> = ({ posts }: Props) => {
+const PostGrid: React.FC<Props> = ({ posts }: Props) => {
 
-    // return the Hero
+    // return the PostGrid
     return (
         <>
             <div>
@@ -38,4 +38,4 @@ const Hero: React.FC<Props> = ({ posts }: Props) => {
 }
 
 // export Thumbnail module
-export default Hero;
+export default PostGrid;

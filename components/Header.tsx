@@ -17,9 +17,14 @@ const Header: React.FC = () => {
                 <nav>
                     <ul>
                         <li>
-                        <Link href="/about">
-                            <a className="">About</a>
-                        </Link>
+                            <Link href="/about">
+                                <a className="">About</a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/search">
+                                <a className="">Search</a>
+                            </Link>
                         </li>
                     </ul>
                 </nav>
