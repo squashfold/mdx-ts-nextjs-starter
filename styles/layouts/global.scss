@@ -1,7 +1,6 @@
-@import '../utilities/utilities.module.scss';
-@import '../abstracts/variables/structure.module.scss';
+@import '../utilities/utilities.scss';
+@import '../abstracts/mixins/structure.scss';
 
 .container {
-    max-width: $content-max-width;
-    margin: 0 auto;
+    @include container();
 }

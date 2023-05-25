@@ -1,0 +1,112 @@
+@import '../abstracts/variables/typography.scss';
+@import '../abstracts/variables/structure.scss';
+@import '../abstracts/mixins/breakpoints.scss';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	margin: 0;
+	margin-bottom: 0;
+
+	+ p {
+		margin-top: $indent__base;
+	}
+}
+
+.h1, h1 {
+	font-family: $font__headings;
+	font-size: $font-size__xl;
+	font-weight: $font-weight__extrabold;
+	line-height: $font__line-height__4xl;
+
+	+ p {
+		margin-top: $indent__xl;
+	}
+
+	@include min-screen($screen__xs) {
+		font-size: $font-size__3xl;
+	}
+	
+	@include min-screen($screen__sm) {
+		font-size: $font-size__4xl;
+	}
+
+	@include min-screen($screen__2xl) {
+		font-size: $font-size__5xl;
+	}
+
+	@include min-screen($screen__3xl) {
+		font-size: $font-size__6xl;
+	}
+}
+
+.h2, h2 {
+	font-family: $font__headings;
+	font-size: $font-size__3xl;
+	line-height: $font__line-height__4xl;
+	margin-bottom: 0;
+	font-weight: $font-weight__extrabold;
+
+	+ p {
+		margin-top: $indent__l;
+	}
+
+	@include min-screen($screen__xl) {
+		font-size: $font-size__5xl;
+	}
+
+	@include min-screen($screen__3xl) {
+	font-size: $font-size__5xl;
+	}
+}
+
+.h3, h3 {
+	font-family: $font__headings;
+	line-height: $font__line-height__2xl;
+	margin-bottom: 0;
+	font-weight: $font-weight__extrabold;
+
+	+ p {
+		margin-top: $indent__l;
+	}
+
+	@include min-screen($screen__sm) {
+		font-size: $font-size__4xl;
+	}
+}
+
+.h4, h4 {
+	font-family: $font__headings;
+	font-size: $font-size__2xl;
+	line-height: $font__line-height__xl;
+	font-weight: $font-weight__extrabold;
+	
+	+ p {
+		margin-top: $indent__l;
+	}
+
+	@include min-screen($screen__sm) {
+		font-size: $font-size__3xl;
+	}
+}
+
+.h5, h5 {
+	font-family: $font__headings;
+	font-size: $font-size__2xl;
+	font-weight: $font-weight__medium;
+}
+
+.h6, h6 {
+	font-family: $font__main;
+	font-size: $font-size__l;
+	line-height: $font__line-height__l;
+	font-weight: $font-weight__medium;
+
+	+ p {
+		margin-top: $indent__xs;
+	}
+}

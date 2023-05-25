@@ -18,8 +18,8 @@ const Thumbnail: React.FC<Props> = ({ title, src, slug}: Props) => {
   // Add the Thumbnail cover image
     const image = (
         <Image
-        width={1920}
-        height={600}
+        width={600}
+        height={400}
         src={src}
         alt={`Thumbnail cover image ${title}`}
         />

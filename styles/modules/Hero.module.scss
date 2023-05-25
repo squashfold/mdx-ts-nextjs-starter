@@ -1,0 +1,6 @@
+@import '../abstracts/mixins/structure.scss';
+
+.hero {
+    padding-top: $content-y-spacing;
+    padding-bottom: $content-y-spacing;    
+}

@@ -1,0 +1,17 @@
+@import '../abstracts/mixins/utilities.scss';
+@import '../abstracts/variables/structure.scss';
+
+.main-nav {
+
+    &__list {
+        display: flex;
+    }
+
+    &__item {
+        @include listReset(); // abstracts/mixins/utilities.module.scss
+    }
+
+    &__link {
+        
+    }
+}

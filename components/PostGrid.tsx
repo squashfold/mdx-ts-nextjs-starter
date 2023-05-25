@@ -1,8 +1,9 @@
 import Thumbnail from '../components/Thumbnail';
 import Link from 'next/link'
 import type Keyable from '../interfaces/keyable'
+import PostGridStyles from '../styles/modules/PostGrid.module.scss';
 
-// Hero properties
+// PostGrid properties
 type Props = {
     posts: object[];
 }
@@ -13,25 +14,28 @@ const PostGrid: React.FC<Props> = ({ posts }: Props) => {
     // return the PostGrid
     return (
         <>
-            <div>
+            <div className={`${PostGridStyles['post-grid']}`}>
                 {posts.map((post: Keyable) => (
-                    <div key={post.slug}>
-                    <div> 
-                        <Thumbnail
-                        slug={post.slug}
-                        title={post.title}
-                        src={post.thumbnail}
-                        />
-                    </div>
+                    <article key={post.slug} className={`${PostGridStyles['post']}`}>
+                        <div> 
+                            <Thumbnail
+                            slug={post.slug}
+                            title={post.title}
+                            src={post.thumbnail}
+                            />
+                        </div>
+                        <div className={``}>
 
-                    <h2>
-                        <Link href={`/posts/${post.slug}`}>
-                        <a>{post.title}</a>
-                        </Link>
-                    </h2>
+                            <h3 className={`h4`}>
+                                <Link href={`/posts/${post.slug}`}>
+                                <a>{post.title}</a>
+                                </Link>
+                            </h3>
 
-                    <p>{post.description}</p>
-                    </div>
+                            <p>{post.description}</p>
+                        </div>
+
+                    </article>
                 ))}
             </div>
         </>

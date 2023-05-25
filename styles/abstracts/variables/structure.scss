@@ -1,0 +1,44 @@
+$content-max-width: 1240px;
+
+$max-width__2xs: 240px;
+$max-width__xs: 380px;
+$max-width__s: 480px;
+$max-width__m: 640px;
+$max-width__l: 768px;
+$max-width__l: 768px;
+$max-width__xl: 1074px;
+$max-width__2xl: 1200px;
+$max-width__full: $content-max-width;
+$max-width__prose: $max-width__xl;
+
+$screen__0: 0;
+$screen__xs: 360px;
+$screen__sm: 576px;
+$screen__md: 768px;
+$screen__lg: 992px;
+$screen__xl: 1200px;
+$screen__2xl: 1400px;
+$screen__3xl: 1600px;
+
+$indent__xs: .25rem;
+$indent__s: .5rem;
+$indent__base: 1rem;
+$indent__l: 1.5rem;
+$indent__xl: 2rem;
+$indent__2xl: 3.125rem;
+$indent__3xl: 4rem;
+$indent__4xl: 5rem;
+$indent__5xl: 6.875rem;
+$indent__6xl: 7.5rem;
+$indent__7xl: 9.375rem;
+
+$content-y-spacing: $indent__7xl;
+
+$border-radius: 25px;
+$border-radius__buttons: 25px;
+
+$header-height: 86px;
+
+:export {
+    contentMaxWidth: $content-max-width;
+}

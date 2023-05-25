@@ -12,24 +12,15 @@ export default function Search() {
   const searchEndpoint = (query: string) => `/api/search?q=${query}`
 
   const getResults = (query: string) => {
-    fetch(searchEndpoint(query))
-    .then(res => res.json())
-    .then(res => {
-      setResults(res.results)
-      console.log(res.results)
-    })
-
-    // replace this with the code below if you don't want to show all posts when nothing is input
-  
-    // if (query.length) {
-    //   fetch(searchEndpoint(query))
-    //     .then(res => res.json())
-    //     .then(res => {
-    //       setResults(res.results)
-    //     })
-    // } else {
-    //   setResults([])
-    // }
+    if (query.length) {
+      fetch(searchEndpoint(query))
+        .then(res => res.json())
+        .then(res => {
+          setResults(res.results)
+        })
+    } else {
+      setResults([])
+    }
   }
 
   const onChange = useCallback((event) => {

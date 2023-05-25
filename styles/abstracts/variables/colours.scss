@@ -1,0 +1,44 @@
+$secondary-color: #001858;
+$secondary-color--accent: #0D308B;
+$secondary-color--shade: #000F38;
+$primary-color: #E6715E;
+$primary-color--shade: #FF583D;
+$primary-color--accent: #F3D2C1;
+
+$offwhite: #FEF6E4;
+$offwhite--accent: #fffcf7;
+
+$white: #fff;
+$white--shade: #ECECEC;
+
+$dark-grey: #212121;
+$light-grey: #F4F4F4;
+
+$color__background-body: $offwhite--accent;
+$color__background-screen: #f1f1f1;
+$color__background-hr: #ccc;
+$color__background-button: $white;
+$color__background-pre: #eee;
+$color__background-ins: #fff9c0;
+
+$color__text-primary: $dark-grey;
+$color__text-bright: $white;
+$color__text-screen: #21759b;
+$color__text-input: #666;
+$color__text-input-focus: #111;
+$color__link: #4169e1; //royalblue
+$color__link-visited: #800080; //purple
+$color__link-hover: #191970; //midnightblue
+$color__text-main: #404040;
+
+$color__border-button: $secondary-color;
+$color__border-button-hover: $secondary-color--accent;
+$color__border-button-focus: $secondary-color--shade;
+$color__border-input: #ccc;
+$color__border-abbr: #666;
+
+$box-shadow__base: 0px 2px 8px 0px rgba(0,0,0,0.05);
+ 
+:export {
+  primaryColor: $primary-color;
+}

@@ -16,7 +16,8 @@ function postData() {
       id,
       title: matterResult.data.title,
       thumbnail: matterResult.data.thumbnail,
-      slug: matterResult.data.slug
+      slug: matterResult.data.slug,
+      description: matterResult.data.description
     }
   })
   return `export const posts = ${JSON.stringify(posts)}`
