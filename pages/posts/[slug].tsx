@@ -5,7 +5,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 import { useMdxComponentsContext } from '../../context/mdxContext';
 import Thumbnail from '../../components/Thumbnail';
-import { IPost } from '../../types/post';
+import { IPost } from '../../interfaces/post';
 import { getPost, getAllPosts } from '../../utils/mdxUtils';
 import Prerequisites from '../../components/Prerequisites';
 import { ParsedUrlQuery } from 'querystring';

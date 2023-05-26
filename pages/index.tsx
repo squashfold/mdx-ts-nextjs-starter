@@ -3,7 +3,7 @@ import PostGrid from '../components/PostGrid';
 import Hero from '../components/Hero';
 import SectionHeading from '../components/SectionHeading';
 import type { NextPage, GetStaticProps } from 'next'
-import { IPost } from "../types/post";
+import { IPost } from "../interfaces/post";
 import { getAllPosts } from "../utils/mdxUtils";
 
 // props type

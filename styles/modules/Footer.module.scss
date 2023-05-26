@@ -1,9 +1,13 @@
-@import '../abstracts/mixins/structure.scss';
+@import '../abstracts/variables/structure.scss';
 @import '../abstracts/variables/colors.scss';
+@import '../abstracts/mixins/structure.scss';
 
 .footer {
     background-color: $dark-grey;
     color: $color__text-bright;
+    padding-top: $indent__2xl;
+    padding-bottom: $indent__2xl;
+    margin-top: $content-y-spacing;
     
     &__inner-wrap {
         @include container;

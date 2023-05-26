@@ -1,11 +1,9 @@
 import { serialize } from 'next-mdx-remote/serialize';
 import { GetStaticProps, GetStaticPaths } from 'next';
-import { useEffect } from 'react';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
-import { useMdxComponentsContext } from '../context/mdxContext';
 import Thumbnail from '../components/Thumbnail';
-import { IPost } from '../types/post';
+import { IPost } from '../interfaces/post';
 import { getAllPages, getPage } from '../utils/mdxUtils';
 import { ParsedUrlQuery } from 'querystring';
 
@@ -26,7 +24,7 @@ const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
 
             <article className="">
                 <div className="">
-                    <Thumbnail title={frontMatter.title} src={frontMatter.thumbnail} />
+                    <Thumbnail title={frontMatter.title} src={frontMatter.coverImage} />
                 </div>
 
                 <h1>{frontMatter.title}</h1>

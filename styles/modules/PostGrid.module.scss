@@ -9,4 +9,10 @@
         grid-template-columns: repeat(3, 1fr);
         grid-gap: $indent__base;
     }
+
+    .post {
+        display: flex;
+        flex-direction: column;
+        gap: $indent__base;
+    }
 }
