@@ -13,12 +13,11 @@ export default function Search() {
   
   const searchRef = useRef<HTMLInputElement>(null)
   const [query, setQuery] = useState('')
-  const [active, setActive] = useState(false)
   const [results, setResults] = useState<any[]>(defaultPosts)
   const [loaded, setLoaded] = useState<boolean>(false)
   const [morePosts, setMorePosts] = useState(results.slice(0, defaultPostsCount));
 
-  const fuse = new Fuse(defaultPosts, {keys: ['title', 'tags']})
+  const fuse = new Fuse(defaultPosts, {keys: ['title', 'tags', 'description']})
 
   const getResults = (query: string) => {
 
@@ -30,7 +29,6 @@ export default function Search() {
       setResults(defaultPosts)
       setMorePosts(defaultPosts.slice(0, defaultPostsCount))
     }
-
       setLoaded(true)
   }
 
@@ -40,23 +38,11 @@ export default function Search() {
     getResults(query)
   }, [])
 
-  const onFocus = useCallback(() => {
-    setActive(true)
-    window.addEventListener('click', onClick)
-  }, [])
-
-  const onClick = useCallback((event) => {
-    if (searchRef.current && !searchRef.current.contains(event.target)) {
-      setActive(false)
-      window.removeEventListener('click', onClick)
-    }
-  }, [])
-
   useEffect(() => {
     if (!loaded) {
       setLoaded(true)
     }
-  });
+  }, [loaded]);
 
   const loadMorePosts = (event: any, toShow: number) => {
     let postsToShow = morePosts.length + toShow;
@@ -73,7 +59,6 @@ export default function Search() {
         <label htmlFor="searchInput">Filter:</label>
         <input
           onChange={onChange}
-          onFocus={onFocus}
           placeholder='Search posts'
           type='text'
           value={query}

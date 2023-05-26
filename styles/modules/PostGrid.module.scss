@@ -1,13 +1,26 @@
 @import '../abstracts/variables/structure.scss';
 @import '../abstracts/mixins/structure.scss';
+@import '../abstracts/mixins/breakpoints.scss';
 
 .post-grid {
     @include container;
 
     &__items {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr;
         grid-gap: $indent__base;
+
+        @include min-screen($screen__md) {
+            flex-direction: row;
+            align-items: center;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include min-screen($screen__lg) {
+            flex-direction: row;
+            align-items: center;
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 
     .post {

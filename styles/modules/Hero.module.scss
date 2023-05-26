@@ -1,6 +1,7 @@
 @import '../abstracts/variables/structure.scss';
 @import '../abstracts/variables/colors.scss';
 @import '../abstracts/mixins/structure.scss';
+@import '../abstracts/mixins/breakpoints.scss';
 
 .hero {   
     background-color: $white--shade; 
@@ -9,9 +10,14 @@
         @include container;
         min-height: 300px;
         display: flex;
-        align-items: center;
+        flex-direction: column;
         justify-content: space-between;
         gap: $indent__l;
+
+        @include min-screen($screen__md) {
+            flex-direction: row;
+            align-items: center;
+        }
 
         .description {
             max-width: $max-width__s;
