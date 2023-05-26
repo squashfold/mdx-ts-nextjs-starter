@@ -7,15 +7,17 @@ export default function Search() {
   const postsPerPage = 6; // Set how many posts should load on button click
   const defaultPostsCount = postsPerPage; // Set how many posts load by default
 
+  const defaultPosts = require('../cache/data').posts;
+  
   const searchRef = useRef<HTMLInputElement>(null)
   const [query, setQuery] = useState('')
   const [active, setActive] = useState(false)
-  const [results, setResults] = useState<any[]>([])
+  const [results, setResults] = useState<any[]>(defaultPosts)
   const [loaded, setLoaded] = useState<boolean>(false)
   const [morePosts, setMorePosts] = useState(results.slice(0, defaultPostsCount));
 
-  const searchEndpoint = (query: string) => `/api/search?q=${query}`
 
+  const searchEndpoint = (query: string) => `/api/search?q=${query}`
 
   const getResults = (query: string) => {
     fetch(searchEndpoint(query))
@@ -23,6 +25,7 @@ export default function Search() {
         .then(res => {
           setResults(res.results)
           setMorePosts(res.results.slice(0, defaultPostsCount))
+          setLoaded(true)
         })
   }
 
@@ -46,7 +49,7 @@ export default function Search() {
 
   useEffect(() => {
     if (!loaded) {
-      getResults(query)
+      // getResults(query)
       setLoaded(true)
     }
   });
