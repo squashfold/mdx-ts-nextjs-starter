@@ -42,5 +42,5 @@ const PostGrid: React.FC<Props> = ({ posts }: Props) => {
     )
 }
 
-// export Thumbnail module
+// export PostGrid module
 export default PostGrid;

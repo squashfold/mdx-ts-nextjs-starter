@@ -9,6 +9,6 @@
 	padding: $indent__base $indent__l;
 
     @include min-screen($screen__lg) {
-		padding: 0 $indent__2xl;
+		padding: $indent__base $indent__2xl;
     }
 }

@@ -1,6 +1,12 @@
-@import '../utilities/utilities.scss';
+@import '../abstracts/variables/structure.scss';
 @import '../abstracts/mixins/structure.scss';
+@import '../utilities/utilities.scss';
 
 .container {
     @include container();
+}
+
+.load-more {
+    margin-top: $indent__base;
+    margin-bottom: $indent__base;
 }

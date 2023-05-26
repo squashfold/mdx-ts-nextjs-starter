@@ -1,8 +1,9 @@
 @import '../abstracts/mixins/structure.scss';
 @import '../abstracts/variables/colors.scss';
 
-.header {
-    background-color: $primary-color--accent;
+.footer {
+    background-color: $dark-grey;
+    color: $color__text-bright;
     
     &__inner-wrap {
         @include container;

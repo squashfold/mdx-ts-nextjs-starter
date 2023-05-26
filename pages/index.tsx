@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PostGrid from '../components/PostGrid';
 import Hero from '../components/Hero';
+import SectionHeading from '../components/SectionHeading';
 import type { NextPage, GetStaticProps } from 'next'
 import { IPost } from "../types/post";
 import { getAllPosts } from "../utils/mdxUtils";
@@ -14,9 +15,10 @@ type Props = {
 const Home: NextPage<Props> = ({ posts }: Props) => {
 
   const totalPosts = posts.length;
-  const postsPerPage = 2;
+  const postsPerPage = 6; // Set how many posts should load on button click
+  const defaultPostsCount = postsPerPage; // Set how many posts load by default
 
-  const [morePosts, setMorePosts] = useState(posts.slice(0, postsPerPage));
+  const [morePosts, setMorePosts] = useState(posts.slice(0, defaultPostsCount));
 
   const handleClick = (event: any, toShow: number) => {
     let postsToShow = morePosts.length + toShow;
@@ -28,19 +30,31 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
   }
 
   return (
-    <div className="container">
-      <Hero title="Welcome! 👋" text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede." headingLevel="h1" />
+    <div>
+      <Hero 
+        title="Welcome! 👋"
+        text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede." 
+        headingLevel="h1"
+        image="/assets/600x400.svg"
+        imageAlt="Placeholder image" />
 
-      <h2 className="">Articles</h2>
+      <SectionHeading 
+        title="Articles"
+        text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede." 
+        headingLevel="h2" />
 
       <PostGrid posts={morePosts} />
 
-      <div>
-        {morePosts.length} of {totalPosts} posts
+      <div className="container">
+        <div className="align-center load-more">
+          {((morePosts.length) <= totalPosts) && (
+            <button className={`button button--primary button--fill`} onClick={(event) => handleClick(event, postsPerPage)}>Load more</button>
+          )}
+        </div>
 
-        {((morePosts.length) <= totalPosts) && (
-          <button className={`button button--primary button--fill`} onClick={(event) => handleClick(event, postsPerPage)}>Load more</button>
-        )}
+        <div className="align-center">
+          {morePosts.length} of {totalPosts} posts
+        </div>
       </div>
 
     </div>

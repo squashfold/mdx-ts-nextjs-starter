@@ -2,19 +2,17 @@
 @import '../abstracts/variables/colors.scss';
 @import '../abstracts/mixins/structure.scss';
 
-.hero {   
-    background-color: $white--shade; 
-
+.section-heading {   
+    margin-top: $indent__2xl;
+    
     &__inner-wrap {
         @include container;
-        min-height: 300px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: $indent__l;
+        text-align: center;
 
         .description {
             max-width: $max-width__s;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 }

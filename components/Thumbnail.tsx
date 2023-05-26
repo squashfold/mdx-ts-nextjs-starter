@@ -1,6 +1,4 @@
-// import link artifacts
 import Link from 'next/link';
-// import image artifacts
 import Image from 'next/image';
 
 // Thumbnail properties

@@ -1,7 +1,10 @@
+@import '../abstracts/variables/structure.scss';
 @import '../abstracts/mixins/structure.scss';
 
 .post-grid {
+    @include container;
+
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: $indent__base;
 }

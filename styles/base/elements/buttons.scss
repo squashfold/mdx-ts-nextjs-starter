@@ -1,4 +1,4 @@
-@import '../../abstracts/variables/colours.scss';
+@import '../../abstracts/variables/colors.scss';
 
 .button,
 button,
@@ -142,6 +142,26 @@ input[type="submit"] {
 			&:hover {
 				background-color: $white--shade;
 			}
+		}
+	}
+}
+
+.text-link {
+	display: inline-block;
+	text-decoration: underline;
+	color: $color__text-primary;
+
+	&:visited {
+		color: $color__text-primary;
+	}
+
+	&--bright {
+		color: $color__text-bright;
+
+		&:visited,
+		&:focus,
+		&:hover {
+			color: $color__text-bright;
 		}
 	}
 }
