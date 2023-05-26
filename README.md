@@ -34,7 +34,7 @@ npm run cache-posts
 
 ## TODO
 
-- [ ] Implement Fuzzy search  
+- [x] Implement Fuzzy search  
 - [ ] Add tags to search filters  
 - [ ] Add breadcrumbs
 
