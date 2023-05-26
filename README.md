@@ -1,10 +1,15 @@
-https://www.section.io/engineering-education/static-nextjs-markdown-blog-typescript-mdx-tailwindcss/
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## What is this for?
 
 This is a boilerplate for creating blogs using MDX and NextJS with Typescript. Feel free to use this as a starting point for your projects.
+
+### Features
+
+-Write posts in MDX format
+-Built-in post caching
+-Fuzzy search
+-Minimal styling (SCSS)
 
 ## Getting Started
 
@@ -56,4 +61,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Credits and Acknowledgements
 This starter uses Rose Chege's [static-nextjs-blog-with-typescript-mdx-tailwindcss](https://github.com/Rose-stack/static-nextjs-blog-with-typescript-mdx-tailwindcss) as a base
 
-With search implementation inspired by Mat Swainson's [nextjs-blog-search-api](https://github.com/matswainson/nextjs-blog-search-api/tree/master)
+With search implementation inspired by Mat Swainson's [nextjs-blog-search-api](https://github.com/matswainson/nextjs-blog-search-api/tree/master), but now fuzzy
