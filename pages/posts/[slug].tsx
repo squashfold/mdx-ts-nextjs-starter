@@ -44,8 +44,6 @@ const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
         frontMatter.tags
     ]);
 
-    console.log(components);
-
     return (
         <div>
 

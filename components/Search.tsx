@@ -1,4 +1,6 @@
 import { useCallback, useRef, useState, useEffect } from 'react'
+import Fuse from 'fuse.js'
+
 import PostGrid from './PostGrid'
 import SearchStyles from '../styles/modules/Search.module.scss';
 
@@ -16,17 +18,20 @@ export default function Search() {
   const [loaded, setLoaded] = useState<boolean>(false)
   const [morePosts, setMorePosts] = useState(results.slice(0, defaultPostsCount));
 
-
-  const searchEndpoint = (query: string) => `/api/search?q=${query}`
+  const fuse = new Fuse(defaultPosts, {keys: ['title', 'tags']})
 
   const getResults = (query: string) => {
-    fetch(searchEndpoint(query))
-        .then(res => res.json())
-        .then(res => {
-          setResults(res.results)
-          setMorePosts(res.results.slice(0, defaultPostsCount))
-          setLoaded(true)
-        })
+
+    if (query.length) {
+      const fuzzySearch = fuse.search(query);
+      setResults(fuzzySearch)
+      setMorePosts(fuzzySearch.slice(0, defaultPostsCount))
+    } else {
+      setResults(defaultPosts)
+      setMorePosts(defaultPosts.slice(0, defaultPostsCount))
+    }
+
+      setLoaded(true)
   }
 
   const onChange = useCallback((event) => {
@@ -49,7 +54,6 @@ export default function Search() {
 
   useEffect(() => {
     if (!loaded) {
-      // getResults(query)
       setLoaded(true)
     }
   });
@@ -64,7 +68,6 @@ export default function Search() {
   }
 
   return (
-    
     <div ref={searchRef}>
       <div className={`${SearchStyles['search']} container`}>
         <label htmlFor="searchInput">Filter:</label>
@@ -80,7 +83,7 @@ export default function Search() {
       </div>
       { results.length > 0 && (
         <>
-          <PostGrid posts={morePosts} loading={!loaded} />
+          <PostGrid posts={morePosts} key={'item'} loading={!loaded} />
           <div className="container">
             <div className="align-center load-more">
               {((morePosts.length) <= results.length) && (
