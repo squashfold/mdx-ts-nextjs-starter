@@ -24,7 +24,16 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
+### Caching Posts
+
+Posts are cached in order for the search API to work. Posts should cache automatically on pre-commit, but if they don't or you need to manually cache posts for testing run:
+
+```bash
+npm run cache-posts
+```
+
 ### TODO
+
 - [ ] Implement Fuzzy search  
 - [ ] Add tags to search filters  
 
