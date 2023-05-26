@@ -32,7 +32,7 @@ Posts are cached in order for the search API to work. Posts should cache automat
 npm run cache-posts
 ```
 
-### TODO
+## TODO
 
 - [ ] Implement Fuzzy search  
 - [ ] Add tags to search filters  
