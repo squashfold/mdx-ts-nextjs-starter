@@ -36,6 +36,7 @@ npm run cache-posts
 
 - [ ] Implement Fuzzy search  
 - [ ] Add tags to search filters  
+- [ ] Add breadcrumbs
 
 ## Learn More
 

@@ -1,0 +1,16 @@
+@import '../abstracts/variables/structure.scss';
+@import '../abstracts/mixins/breakpoints.scss';
+
+.post-header {
+    display: grid;
+    gap: $indent__base;
+    grid-template-columns: 1fr;
+    margin-bottom: $indent__2xl;
+
+    @include min-screen($screen__md) {
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+        margin-top: $indent__2xl;
+        margin-bottom: $content-y-spacing;
+    }
+}

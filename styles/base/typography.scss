@@ -32,18 +32,6 @@ h6 {
 	}
 
 	@include min-screen($screen__xs) {
-		font-size: $font-size__3xl;
-	}
-	
-	@include min-screen($screen__sm) {
-		font-size: $font-size__4xl;
-	}
-
-	@include min-screen($screen__2xl) {
-		font-size: $font-size__5xl;
-	}
-
-	@include min-screen($screen__3xl) {
 		font-size: $font-size__6xl;
 	}
 }
@@ -59,12 +47,8 @@ h6 {
 		margin-top: $indent__l;
 	}
 
-	@include min-screen($screen__xl) {
+	@include min-screen($screen__sm) {
 		font-size: $font-size__5xl;
-	}
-
-	@include min-screen($screen__3xl) {
-	font-size: $font-size__5xl;
 	}
 }
 

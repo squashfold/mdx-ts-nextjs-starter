@@ -12,6 +12,8 @@ import { ParsedUrlQuery } from 'querystring';
 import Tags from '../../components/Tags';
 import GistEmbed from '../../components/GistEmbed';
 
+import PostStyles from '../../styles/modules/Post.module.scss';
+
 // props type
 type Props = {
     source: MDXRemoteSerializeResult,
@@ -47,14 +49,17 @@ const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
     return (
         <div>
 
-            <article className="">
-                <div className="">
-                    <Thumbnail title={frontMatter.title} src={frontMatter.thumbnail} />
+            <article className="container">
+
+                <div className={`${PostStyles['post-header']}`}>
+                    <div>
+                        <Thumbnail title={frontMatter.title} src={frontMatter.thumbnail} />
+                    </div>
+                    <div>
+                        <h1>{frontMatter.title}</h1>
+                        <p>{frontMatter.description}</p>
+                    </div>
                 </div>
-
-                <h1>{frontMatter.title}</h1>
-
-                <p>{frontMatter.description}</p>
 
                 <MDXRemote components={components} {...source} />
             </article>
