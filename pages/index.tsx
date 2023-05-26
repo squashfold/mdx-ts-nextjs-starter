@@ -39,7 +39,7 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
         {morePosts.length} of {totalPosts} posts
 
         {((morePosts.length) <= totalPosts) && (
-          <button onClick={(event) => handleClick(event, postsPerPage)} className="button">Load more</button>
+          <button className={`button button--primary button--fill`} onClick={(event) => handleClick(event, postsPerPage)}>Load more</button>
         )}
       </div>
 

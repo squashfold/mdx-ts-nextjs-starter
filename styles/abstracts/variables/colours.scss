@@ -23,21 +23,12 @@ $color__background-ins: #fff9c0;
 
 $color__text-primary: $dark-grey;
 $color__text-bright: $white;
-$color__text-screen: #21759b;
-$color__text-input: #666;
-$color__text-input-focus: #111;
-$color__link: #4169e1; //royalblue
-$color__link-visited: #800080; //purple
-$color__link-hover: #191970; //midnightblue
-$color__text-main: #404040;
+
+$box-shadow__base: 0px 2px 8px 0px rgba(0,0,0,0.05);
 
 $color__border-button: $secondary-color;
 $color__border-button-hover: $secondary-color--accent;
 $color__border-button-focus: $secondary-color--shade;
-$color__border-input: #ccc;
-$color__border-abbr: #666;
-
-$box-shadow__base: 0px 2px 8px 0px rgba(0,0,0,0.05);
  
 :export {
   primaryColor: $primary-color;

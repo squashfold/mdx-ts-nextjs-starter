@@ -2,6 +2,10 @@
 @import '../abstracts/variables/structure.scss';
 @import '../abstracts/mixins/breakpoints.scss';
 
+body {
+	font-family: $font__main;
+}
+
 h1,
 h2,
 h3,

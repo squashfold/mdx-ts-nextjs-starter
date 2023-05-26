@@ -1,0 +1,147 @@
+@import '../../abstracts/variables/colours.scss';
+
+.button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: $indent__base;
+	border: 2px solid;
+	border-color: $color__border-button;
+	border-radius: $border-radius__buttons;
+	background: $color__background-button;
+	min-height: 54px;
+	color: $color__text-primary;
+	line-height: 1;
+	padding: $indent__s $indent__l;
+	font-weight: $font-weight__medium;
+	font-size: $font-size__base;
+	text-decoration: none;
+
+	&:hover {
+		border-color: $color__border-button-hover;
+	}
+
+	&:active,
+	&:focus {
+		border-color: $color__border-button-focus;
+	}
+
+	&:visited {
+		color: inherit;
+	}
+}
+
+.button {	
+	cursor: pointer;
+	transition: all ease-in-out .125s;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+	
+	&--small {
+		padding: $indent__xs $indent__s;
+		min-height: 32px;
+		font-size: $font-size__s;
+	}
+
+	&--primary {
+		border-color: $primary-color--accent;
+		color: $color__text-primary;
+
+		svg {
+			path {
+				fill: $color__text-primary;
+			}
+		}
+
+		&:visited {
+			color: $color__text-primary;
+		}
+
+		&:hover {
+			background-color: $primary-color;
+			border-color: $primary-color;
+		}
+
+		&.button--fill {
+			background-color: $primary-color--accent;
+			
+			&:hover {
+				background-color: $primary-color;
+			}
+		}
+	}
+
+	&--secondary {
+		border-color: $secondary-color--accent;
+		color: $color__text-primary;
+		
+		svg {
+			path {
+				fill: $color__text-primary;
+			}
+		}
+
+		&:visited {
+			color: $color__text-primary;
+		}
+
+		&:hover {
+			background-color: $secondary-color;
+			border-color: $secondary-color;
+		}
+
+		&.button--fill {
+			background-color: $secondary-color--accent;
+			color: $color__text-bright;
+
+			
+			svg {
+				path {
+					fill: $color__text-bright;
+				}
+			}
+
+			&:visited {
+				color: $color__text-bright;
+			}
+			
+			&:hover {
+				background-color: $secondary-color;
+			}
+		}
+	}
+
+	&--white {
+		border-color: $white;
+		color: $color__text-primary;
+		
+		svg {
+			path {
+				fill: $color__text-primary;
+			}
+		}
+
+		&:visited {
+			color: $color__text-primary;
+		}
+
+		&:hover {
+			background-color: $white--shade;
+			border-color: $white--shade;
+		}
+
+		&.button--fill {
+			background-color: $white;
+			
+			&:hover {
+				background-color: $white--shade;
+			}
+		}
+	}
+}
