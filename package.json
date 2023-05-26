@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cache-posts": "node cache/cache.js"
+    "cache-posts": "node cache/cache.js",
+    "prepare": "husky install"
   },
   "dependencies": {
     "autoprefixer": "^10.4.0",
