@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cache-posts": "node cache/cache.js",
+    "cache-posts": "echo 'Caching posts...'; node cache/cache.js",
     "prepare": "husky install"
   },
   "dependencies": {
