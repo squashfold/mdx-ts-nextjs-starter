@@ -1,8 +1,8 @@
 import { useCallback, useRef, useState, useEffect } from 'react'
 import PostGrid from './PostGrid'
+import SearchStyles from '../styles/modules/Search.module.scss';
 
 export default function Search() {
-
   
   const postsPerPage = 6; // Set how many posts should load on button click
   const defaultPostsCount = postsPerPage; // Set how many posts load by default
@@ -63,7 +63,7 @@ export default function Search() {
   return (
     
     <div ref={searchRef}>
-      <div className="container">
+      <div className={`${SearchStyles['search']} container`}>
         <label htmlFor="searchInput">Filter:</label>
         <input
           onChange={onChange}
@@ -72,11 +72,12 @@ export default function Search() {
           type='text'
           value={query}
           id="searchInput"
+          className={`${SearchStyles['search__input']}`}
         />
       </div>
       { results.length > 0 && (
         <>
-          <PostGrid posts={morePosts} />
+          <PostGrid posts={morePosts} loading={!loaded} />
           <div className="container">
             <div className="align-center load-more">
               {((morePosts.length) <= results.length) && (

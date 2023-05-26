@@ -6,37 +6,45 @@ import PostGridStyles from '../styles/modules/PostGrid.module.scss';
 // PostGrid properties
 type Props = {
     posts: object[];
+    loading?: boolean;
 }
 
-
-const PostGrid: React.FC<Props> = ({ posts }: Props) => {
+const PostGrid: React.FC<Props> = ({ posts, loading }: Props) => {
 
     // return the PostGrid
     return (
         <>
             <div className={`${PostGridStyles['post-grid']}`}>
-                {posts.map((post: Keyable) => (
-                    <article key={post.slug} className={`${PostGridStyles['post']}`}>
-                        <div> 
-                            <Thumbnail
-                            slug={post.slug}
-                            title={post.title}
-                            src={post.thumbnail}
-                            />
-                        </div>
-                        <div className={``}>
+                {!loading && (
+                    <div className={`${PostGridStyles['post-grid__items']}`}>
+                    {posts.map((post: Keyable) => (
+                        <article key={post.slug} className={`${PostGridStyles['post']}`}>
+                            <div> 
+                                <Thumbnail
+                                slug={post.slug}
+                                title={post.title}
+                                src={post.thumbnail}
+                                />
+                            </div>
+                            <div className={``}>
 
-                            <h3 className={`h4`}>
-                                <Link href={`/posts/${post.slug}`}>
-                                <a>{post.title}</a>
-                                </Link>
-                            </h3>
+                                <h3 className={`h4`}>
+                                    <Link href={`/posts/${post.slug}`}>
+                                    <a>{post.title}</a>
+                                    </Link>
+                                </h3>
 
-                            <p>{post.description}</p>
-                        </div>
+                                <p>{post.description}</p>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+                )}
 
-                    </article>
-                ))}
+                {loading && (
+                    <span>Loading...</span>
+                )}
+                
             </div>
         </>
     )

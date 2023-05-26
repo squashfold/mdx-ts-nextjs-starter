@@ -4,7 +4,9 @@
 .post-grid {
     @include container;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: $indent__base;
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: $indent__base;
+    }
 }

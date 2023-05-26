@@ -1,0 +1,16 @@
+@import '../abstracts/variables/structure.scss';
+@import '../abstracts/variables/typography.scss';
+
+.search {
+    display: flex;
+    gap: $indent__base;
+    align-items: center;
+
+    label {
+        font-weight: $font-weight__bold;
+    }
+
+    &__input {
+        flex: 1;
+    }
+}
