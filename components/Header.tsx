@@ -12,7 +12,7 @@ const Header: React.FC = () => {
             <div className={`container ${HeaderStyles['header__inner-wrap']}`}>
 
                 <Link href="/">
-                    <a className="">TypeScript MDX Blog Starter</a>
+                    <a className=""><strong>TypeScript MDX Blog Starter</strong></a>
                 </Link>
 
                 <nav className={`${NavigationStyles['main-nav']}`}>
