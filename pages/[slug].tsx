@@ -1,6 +1,8 @@
 import { serialize } from 'next-mdx-remote/serialize';
 import { GetStaticProps, GetStaticPaths } from 'next';
+import Head from 'next/head';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import Config from "../app.config"
 
 import Thumbnail from '../components/Thumbnail';
 import { IPost } from '../interfaces/post';
@@ -20,20 +22,27 @@ const components = {
 const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
 
     return (
-        <div className="container">
+        <>
+            <Head>
+                <title>{frontMatter.title + ' | ' + Config.title}</title>
+                <meta property="og:title" content={frontMatter.title} key="ogtitle" />
+                <meta property="og:image" content={frontMatter.thumbnail} key="ogimg" />
+            </Head>
+            <div className="container">
 
-            <article className="">
-                <div className="">
-                    <Thumbnail title={frontMatter.title} src={frontMatter.coverImage} />
-                </div>
+                <article className="">
+                    <div className="">
+                        <Thumbnail title={frontMatter.title} src={frontMatter.coverImage} />
+                    </div>
 
-                <h1>{frontMatter.title}</h1>
+                    <h1>{frontMatter.title}</h1>
 
-                <p>{frontMatter.description}</p>
+                    <p>{frontMatter.description}</p>
 
-                <MDXRemote components={components} {...source} />
-            </article>
-        </div>
+                    <MDXRemote components={components} {...source} />
+                </article>
+            </div>
+        </>
     )
 }
 

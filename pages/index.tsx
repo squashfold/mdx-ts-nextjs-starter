@@ -5,6 +5,8 @@ import SectionHeading from '../components/SectionHeading';
 import type { NextPage, GetStaticProps } from 'next'
 import { IPost } from "../interfaces/post";
 import { getAllPosts } from "../utils/mdxUtils";
+import Head from 'next/head';
+import Config from "../app.config"
 
 // props type
 type Props = {
@@ -30,7 +32,11 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
   }
 
   return (
-    <div>
+    <>
+      <Head>
+          <title>{Config.title}</title>
+          <meta property="og:title" content={Config.title} key="ogtitle" />
+      </Head>
       <Hero 
         title="Welcome! 👋"
         text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede." 
@@ -57,7 +63,7 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
         </div>
       </div>
 
-    </div>
+    </>
   )
 }
 

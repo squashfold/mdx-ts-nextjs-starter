@@ -1,7 +1,9 @@
 import { serialize } from 'next-mdx-remote/serialize';
 import { GetStaticProps, GetStaticPaths } from 'next';
+import Head from 'next/head';
 import { useEffect } from 'react';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import Config from "../../app.config"
 
 import { useMdxComponentsContext } from '../../context/mdxContext';
 import Thumbnail from '../../components/Thumbnail';
@@ -46,7 +48,12 @@ const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
 
     return (
         <div>
-
+            <Head>
+                <title>{frontMatter.title + ' | ' + Config.title}</title>
+                <meta property="og:title" content={frontMatter.title} key="ogtitle" />
+                <meta property="og:image" content={frontMatter.thumbnail} key="ogimg" />
+                <meta property="og:type" content="article" />
+            </Head>
             <article className="container">
 
                 <div className={`${PostStyles['post-header']}`}>
