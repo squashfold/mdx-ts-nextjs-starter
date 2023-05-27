@@ -1,3 +1,5 @@
+Live demo: [https://mdx-ts-nextjs-starter.vercel.app/](https://mdx-ts-nextjs-starter.vercel.app/)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## What is this for?
@@ -42,6 +44,8 @@ npm run cache-posts
 - [x] Implement Fuzzy search  
 - [ ] Add tags to search filters  
 - [ ] Add breadcrumbs
+- [ ] SEO Post meta
+- [ ] SEO OG tags
 
 ## Learn More
 
