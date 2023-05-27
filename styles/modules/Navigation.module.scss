@@ -1,5 +1,6 @@
 @import '../abstracts/mixins/utilities.scss';
 @import '../abstracts/variables/structure.scss';
+@import '../abstracts/variables/colors.scss';
 
 .main-nav {
 
@@ -14,5 +15,20 @@
 
     &__link {
         
+    }
+
+    &__skip-link {
+        position: fixed;
+        top: -100px;
+        left: 0;
+        right: 0;
+        padding: $indent__s;
+        background: $white;
+        text-align: center;
+        transform: all ease-in-out .2s;
+
+        &:focus {
+            top: 0;
+        }
     }
 }

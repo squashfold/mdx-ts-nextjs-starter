@@ -12,6 +12,10 @@ const Header: React.FC = () => {
         <header className={`${HeaderStyles.header}`}>
             <div className={`container ${HeaderStyles['header__inner-wrap']}`}>
 
+                <Link href="#main">
+                    <a className={`${NavigationStyles['main-nav__skip-link']}`}>Skip to content</a>
+                </Link>
+
                 <Link href="/">
                     <a className=""><strong>{Config.title}</strong></a>
                 </Link>
