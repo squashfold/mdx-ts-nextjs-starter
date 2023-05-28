@@ -1,6 +1,4 @@
-import Thumbnail from './Thumbnail';
 import PostCard from './PostCard';
-import Link from 'next/link'
 import type Keyable from '../interfaces/keyable'
 import PostGridStyles from '../styles/modules/PostGrid.module.scss';
 
