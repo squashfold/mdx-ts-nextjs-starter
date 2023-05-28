@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PostGrid from '../components/PostGrid';
 import Hero from '../components/Hero';
+import LoadMoreButton from '../components/LoadMoreButton';
 import SectionHeading from '../components/SectionHeading';
 import type { NextPage, GetStaticProps } from 'next'
 import { IPost } from "../interfaces/post";
@@ -17,13 +18,13 @@ type Props = {
 const Home: NextPage<Props> = ({ posts }: Props) => {
 
   const totalPosts = posts.length;
-  const postsPerPage = 6; // Set how many posts should load on button click
+  const postsPerPage = Config.postsPerPage; // Set how many posts should load on button click
   const defaultPostsCount = postsPerPage; // Set how many posts load by default
 
   const [morePosts, setMorePosts] = useState(posts.slice(0, defaultPostsCount));
 
-  const handleClick = (event: any, toShow: number) => {
-    let postsToShow = morePosts.length + toShow;
+  const loadMorePosts = (event: any) => {
+    let postsToShow = morePosts.length + postsPerPage;
     setMorePosts(posts.slice(0, postsToShow))
   
     if (totalPosts <= postsToShow) {
@@ -38,7 +39,7 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
           <meta property="og:title" content={Config.title} key="ogtitle" />
       </Head>
       <Hero 
-        title="Welcome! 👋"
+        title="A NextJS blog boilerplate"
         text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede." 
         headingLevel="h1"
         image="/assets/600x400.svg"
@@ -51,17 +52,7 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
 
       <PostGrid posts={morePosts} />
 
-      <div className="container">
-        <div className="align-center load-more">
-          {((morePosts.length) <= totalPosts) && (
-            <button className={`button button--primary button--fill`} onClick={(event) => handleClick(event, postsPerPage)}>Load more</button>
-          )}
-        </div>
-
-        <div className="align-center">
-          {morePosts.length} of {totalPosts} posts
-        </div>
-      </div>
+      <LoadMoreButton postsVisible={morePosts.length} totalPosts={totalPosts} loadMorePosts={loadMorePosts} />
 
     </>
   )

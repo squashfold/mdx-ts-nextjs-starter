@@ -1,11 +1,13 @@
 import { useCallback, useRef, useState, useEffect } from 'react'
 
 import PostGrid from './PostGrid'
+import LoadMoreButton from '../components/LoadMoreButton';
 import SearchStyles from '../styles/modules/Search.module.scss';
+import Config from "../app.config"
 
 export default function Search() {
   
-  const postsPerPage = 6; // Set how many posts should load on button click
+  const postsPerPage = Config.postsPerPage; // Set how many posts should load on button click
   const defaultPostsCount = postsPerPage; // Set how many posts load by default
 
   const defaultPosts = require('../cache/data').posts;
@@ -47,8 +49,8 @@ export default function Search() {
     }
   }, [loaded]);
 
-  const loadMorePosts = (event: any, toShow: number) => {
-    let postsToShow = morePosts.length + toShow;
+  const loadMorePosts = (event: any) => {
+    let postsToShow = morePosts.length + postsPerPage;
     setMorePosts(results.slice(0, postsToShow))
   
     if (results.length <= postsToShow) {
@@ -72,17 +74,7 @@ export default function Search() {
       { results.length > 0 && (
         <>
           <PostGrid posts={morePosts} key={'item'} loading={!loaded} />
-          <div className="container">
-            <div className="align-center load-more">
-              {((morePosts.length) <= results.length) && (
-                <button className={`button button--primary button--fill`} onClick={(event) => loadMorePosts(event, postsPerPage)}>Load more</button>
-              )}
-            </div>
-
-            <div className="align-center">
-              {morePosts.length} of {results.length} posts
-            </div>
-          </div>
+          <LoadMoreButton postsVisible={morePosts.length} totalPosts={results.length} loadMorePosts={loadMorePosts} />
         </>
       ) }
     </div>
