@@ -1,4 +1,5 @@
-import Thumbnail from '../components/Thumbnail';
+import Thumbnail from './Thumbnail';
+import PostCard from './PostCard';
 import Link from 'next/link'
 import type Keyable from '../interfaces/keyable'
 import PostGridStyles from '../styles/modules/PostGrid.module.scss';
@@ -19,25 +20,7 @@ const PostGrid: React.FC<Props> = ({ posts, loading }: Props) => {
                 {(!loading && posts.length) && (
                     <div className={`${PostGridStyles['post-grid__items']}`}>
                     {posts.map((post: Keyable) => (
-                        <article key={post.slug ? post.slug : post.item.slug} className={`${PostGridStyles['post']}`}>
-                            <div> 
-                                <Thumbnail
-                                slug={post.slug ? post.slug : post.item.slug}
-                                title={post.title ? post.title : post.item.title}
-                                src={post.thumbnail ? post.thumbnail : post.item.thumbnail}
-                                />
-                            </div>
-                            <div className={``}>
-
-                                <h3 className={`h4`}>
-                                    <Link href={`/posts/${post.slug ? post.slug : post.item.slug}`}>
-                                    <a>{post.title ? post.title : post.item.title}</a>
-                                    </Link>
-                                </h3>
-
-                                <p>{post.description ? post.description : post.item.description}</p>
-                            </div>
-                        </article>
+                        <PostCard post={post} loading={false} />
                     ))}
                 </div>
                 )}
