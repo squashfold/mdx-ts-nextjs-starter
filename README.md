@@ -44,8 +44,10 @@ npm run cache-posts
 - [x] Implement Fuzzy search  
 - [ ] Add tags to search filters  
 - [ ] Add breadcrumbs
-- [ ] SEO Post meta
 - [ ] SEO OG tags
+  - [x] og:title for all pages/posts
+  - [x] og:image for posts
+  - [ ] og:type data for posts
 
 ## Learn More
 
