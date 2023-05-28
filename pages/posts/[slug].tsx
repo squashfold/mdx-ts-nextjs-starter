@@ -3,8 +3,6 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import Config from "../../app.config"
-
 import { useMdxComponentsContext } from '../../context/mdxContext';
 import Thumbnail from '../../components/Thumbnail';
 import { IPost } from '../../interfaces/post';
@@ -13,6 +11,7 @@ import Prerequisites from '../../components/Prerequisites';
 import { ParsedUrlQuery } from 'querystring';
 import Tags from '../../components/Tags';
 import GistEmbed from '../../components/GistEmbed';
+import Config from "../../app.config"
 
 import PostStyles from '../../styles/modules/Post.module.scss';
 
@@ -51,6 +50,7 @@ const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
             <Head>
                 <title>{frontMatter.title + ' | ' + Config.title}</title>
                 <meta property="og:title" content={frontMatter.title} key="ogtitle" />
+                <meta property="og:description" content={frontMatter.description} key="ogtitle" />
                 <meta property="og:image" content={frontMatter.thumbnail} key="ogimg" />
                 <meta property="og:type" content="article" />
             </Head>
