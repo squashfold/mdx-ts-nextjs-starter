@@ -1,5 +1,4 @@
 import { useCallback, useRef, useState, useEffect } from 'react'
-import Fuse from 'fuse.js'
 
 import PostGrid from './PostGrid'
 import SearchStyles from '../styles/modules/Search.module.scss';
@@ -17,14 +16,18 @@ export default function Search() {
   const [loaded, setLoaded] = useState<boolean>(false)
   const [morePosts, setMorePosts] = useState(results.slice(0, defaultPostsCount));
 
-  const fuse = new Fuse(defaultPosts, {keys: ['title', 'tags', 'description']})
+  const searchEndpoint = (query: string) => `/api/search?q=${query}`
 
   const getResults = (query: string) => {
 
     if (query.length) {
-      const fuzzySearch = fuse.search(query);
-      setResults(fuzzySearch)
-      setMorePosts(fuzzySearch.slice(0, defaultPostsCount))
+      fetch(searchEndpoint(query))
+        .then(res => res.json())
+        .then(res => {
+          setResults(res.results)
+          setMorePosts(res.results.slice(0, defaultPostsCount))
+          setLoaded(true)
+        })
     } else {
       setResults(defaultPosts)
       setMorePosts(defaultPosts.slice(0, defaultPostsCount))
