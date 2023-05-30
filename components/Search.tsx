@@ -37,14 +37,16 @@ export default function Search() {
         .then(res => {
           setResults(res.results)
           setMorePosts(res.results.slice(0, defaultPostsCount))
-          console.log(getTags);
-          setTags([...new Set(getTags.join(",").split(","))])
+          // console.log(getTags);
+          // setTags([...new Set(getTags.join(",").split(","))])
         })
     } else {
       setResults(defaultPosts)
       setMorePosts(defaultPosts.slice(0, defaultPostsCount))
-      setTags([...new Set(getTags.join(",").split(","))])
+      // setTags([...new Set(getTags.join(",").split(","))])
     }
+      console.log(getTags)
+      setTags([...new Set(getTags.join(",").split(","))])
       setLoaded(true)
   }
 
