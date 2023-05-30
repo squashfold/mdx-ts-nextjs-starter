@@ -48,6 +48,7 @@ npm run cache-posts
   - [x] og:image for posts
   - [ ] og:type data for posts
 - [ ] Add loading states for search results
+- [ ] Format dates
 
 ### Done
 - [x] Implement Fuzzy search
