@@ -12,7 +12,7 @@ const PostGrid: React.FC<Props> = ({ totalPosts, postsVisible, loadMorePosts }: 
     <>
         <div className="container">
         <div className="align-center load-more">
-            {((postsVisible) <= totalPosts) && (
+            {((postsVisible) < totalPosts) && (
             <button className={`button button--primary button--fill`} onClick={(event) => loadMorePosts(event)}>Load more</button>
             )}
         </div>

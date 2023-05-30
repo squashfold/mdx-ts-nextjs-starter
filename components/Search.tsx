@@ -18,21 +18,31 @@ export default function Search() {
   const [loaded, setLoaded] = useState<boolean>(false)
   const [morePosts, setMorePosts] = useState(results.slice(0, defaultPostsCount));
 
-  const searchEndpoint = (query: string) => `/api/search?q=${query}`
+  const getTags = morePosts.map(item => {
+    const container = item.tags ? item.tags : item.item.tags;
+    return container;
+  })
 
-  const getResults = (query: string) => {
+  const [tags, setTags] = useState<any[]>([...new Set(getTags.join(",").split(","))]);
+  const [tagsFilter, setTagsFilter] = useState<any[]>([]);
 
-    if (query.length) {
-      fetch(searchEndpoint(query))
+  const searchEndpoint = (query: string, tags: string) => `/api/search?q=${query}&tags=${tags}` // &tags=${tags}
+
+  const getResults = (query: string, tags: string[]) => {
+    console.log('get results is gone');
+    if (query.length || tags.length) {
+      fetch(searchEndpoint(query, encodeURIComponent(JSON.stringify(tags))))
         .then(res => res.json())
         .then(res => {
           setResults(res.results)
           setMorePosts(res.results.slice(0, defaultPostsCount))
-          setLoaded(true)
+          console.log(getTags);
+          setTags([...new Set(getTags.join(",").split(","))])
         })
     } else {
       setResults(defaultPosts)
       setMorePosts(defaultPosts.slice(0, defaultPostsCount))
+      setTags([...new Set(getTags.join(",").split(","))])
     }
       setLoaded(true)
   }
@@ -40,15 +50,9 @@ export default function Search() {
   const onChange = useCallback((event) => {
     const query = event.target.value;
     setQuery(query)
-    getResults(query)
+    getResults(query, tagsFilter)
   }, [])
-
-  useEffect(() => {
-    if (!loaded) {
-      setLoaded(true)
-    }
-  }, [loaded]);
-
+  
   const loadMorePosts = (event: any) => {
     let postsToShow = morePosts.length + postsPerPage;
     setMorePosts(results.slice(0, postsToShow))
@@ -58,9 +62,24 @@ export default function Search() {
     }
   }
 
+  const handleTagChange = (isChecked: boolean, value: any) => {
+    if(isChecked === true){
+      setTagsFilter([...tagsFilter, value]);
+    }
+    else if(isChecked === false){
+      let freshArray = tagsFilter.filter(val => val !== value);
+      setTagsFilter([...freshArray]);
+    }
+  }
+
+  useEffect(() => {
+    getResults(query, tagsFilter);
+  }, [query, tagsFilter]);
+
   return (
     <div ref={searchRef}>
       <div className={`${SearchStyles['search']} container`}>
+        tags: {tagsFilter.length} {tagsFilter}
         <label htmlFor="searchInput">Filter:</label>
         <input
           onChange={onChange}
@@ -73,6 +92,15 @@ export default function Search() {
       </div>
       { results.length > 0 && (
         <>
+          <ul>
+              {tags.map((tag: string, index) => (
+                <li key={index}>
+                  <input type="checkbox" id={`tag-${index}`} name={`tag-${index}`} value={tag}
+                    onChange={e => handleTagChange( e.currentTarget.checked, e.currentTarget.value )} />
+                  <label htmlFor={`tag-${index}`}>{tag}</label>
+                </li>
+                ))}
+          </ul>
           <PostGrid posts={morePosts} key={'item'} loading={!loaded} />
           <LoadMoreButton postsVisible={morePosts.length} totalPosts={results.length} loadMorePosts={loadMorePosts} />
         </>
