@@ -1,4 +1,8 @@
 @mixin listReset() {
-    list-style: none;
-    padding-left: 0;
+    padding: 0;
+    
+    li {
+        list-style: none;
+        padding: 0;
+    }
 }

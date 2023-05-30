@@ -7,7 +7,6 @@ import { useMdxComponentsContext } from '../../context/mdxContext';
 import Thumbnail from '../../components/Thumbnail';
 import { IPost } from '../../interfaces/post';
 import { getPost, getAllPosts } from '../../utils/mdxUtils';
-import Prerequisites from '../../components/Prerequisites';
 import { ParsedUrlQuery } from 'querystring';
 import Tags from '../../components/Tags';
 import GistEmbed from '../../components/GistEmbed';
@@ -23,8 +22,6 @@ type Props = {
 
 // components to render
 const components = {
-    Prerequisites,
-    Tags,
     GistEmbed,
 }
 
@@ -63,6 +60,7 @@ const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
                     <div>
                         <h1>{frontMatter.title}</h1>
                         <p>{frontMatter.description}</p>
+                        <Tags />
                     </div>
                 </div>
 

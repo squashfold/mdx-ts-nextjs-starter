@@ -1,7 +1,8 @@
 import { useCallback, useRef, useState, useEffect } from 'react'
 
 import PostGrid from './PostGrid'
-import LoadMoreButton from '../components/LoadMoreButton';
+import LoadMoreButton from './LoadMoreButton';
+import TagsFilter from './TagsFilter';
 import SearchStyles from '../styles/modules/Search.module.scss';
 import Config from "../app.config"
 
@@ -79,7 +80,6 @@ export default function Search() {
   return (
     <div ref={searchRef}>
       <div className={`${SearchStyles['search']} container`}>
-        tags: {tagsFilter.length} {tagsFilter}
         <label htmlFor="searchInput">Filter:</label>
         <input
           onChange={onChange}
@@ -92,15 +92,9 @@ export default function Search() {
       </div>
       { results.length > 0 && (
         <>
-          <ul>
-              {tags.map((tag: string, index) => (
-                <li key={index}>
-                  <input type="checkbox" id={`tag-${index}`} name={`tag-${index}`} value={tag}
-                    onChange={e => handleTagChange( e.currentTarget.checked, e.currentTarget.value )} />
-                  <label htmlFor={`tag-${index}`}>{tag}</label>
-                </li>
-                ))}
-          </ul>
+          <div className={`container`}>
+            <TagsFilter tags={tags} handleTagChange={handleTagChange} />
+          </div>
           <PostGrid posts={morePosts} key={'item'} loading={!loaded} />
           <LoadMoreButton postsVisible={morePosts.length} totalPosts={results.length} loadMorePosts={loadMorePosts} />
         </>

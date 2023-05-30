@@ -1,3 +1,4 @@
+@import '../../abstracts/variables/structure.scss';
 @import '../../abstracts/variables/colors.scss';
 
 .button,
@@ -9,7 +10,7 @@ input[type="submit"] {
 	align-items: center;
 	justify-content: center;
 	gap: $indent__base;
-	border: 2px solid;
+	border: $border-width__buttons solid;
 	border-color: $color__border-button;
 	border-radius: $border-radius__buttons;
 	background: $color__background-button;

@@ -1,0 +1,27 @@
+@import '../abstracts/variables/structure.scss';
+@import '../abstracts/mixins/utilities.scss';
+@import '../base/elements/pills.scss';
+
+.tag-filter {
+    // @include container;
+    display: flex;
+    gap: $indent__base;
+    @include listReset(); // abstracts/mixins/utilities.module.scss
+
+    &__item {
+        input {
+            position: absolute;
+            left: -200vw;
+            opacity: 0;
+        }
+
+        label {
+            @extend %pill;
+            cursor: pointer;
+        }
+
+        input:checked + label {
+            @extend %pill--active;
+        }
+    }
+}

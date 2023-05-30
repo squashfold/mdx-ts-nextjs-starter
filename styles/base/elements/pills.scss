@@ -1,0 +1,16 @@
+@import '../../abstracts/variables/structure.scss';
+@import '../../abstracts/variables/colors.scss';
+
+%pill {
+	border: $border-width__buttons solid;
+	border-color: $color__border-button;
+	border-radius: $border-radius__buttons;
+    padding: $indent__xs $indent__base;
+    text-align: center;
+    user-select: none;
+
+    &--active {
+        background-color: $secondary-color--accent;
+        color: $color__text-bright;
+    }
+}
