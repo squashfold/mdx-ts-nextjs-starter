@@ -42,13 +42,14 @@ npm run cache-posts
 ## TODO
 
 - [x] Implement Fuzzy search
-- [ ] Add tags to search filters  
+- [x] Add tags to search filters  
 - [ ] Add breadcrumbs
 - [ ] SEO OG tags
   - [x] og:title for all pages/posts
   - [x] og:description for all pages/posts
   - [x] og:image for posts
   - [ ] og:type data for posts
+- [ ] Add loading states for search results
 
 
 ## Credits and Acknowledgements
