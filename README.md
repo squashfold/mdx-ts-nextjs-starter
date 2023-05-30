@@ -52,4 +52,4 @@ npm run cache-posts
 ## Credits and Acknowledgements
 This starter is inspired by Rose Chege's [static-nextjs-blog-with-typescript-mdx-tailwindcss](https://github.com/Rose-stack/static-nextjs-blog-with-typescript-mdx-tailwindcss)
 
-With search implementation inspired by Mat Swainson's [nextjs-blog-search-api](https://github.com/matswainson/nextjs-blog-search-api/tree/master), but now fuzzy
+With search implementation inspired by Mat Swainson's [nextjs-blog-search-api](https://github.com/matswainson/nextjs-blog-search-api/tree/master), but fuzzy
