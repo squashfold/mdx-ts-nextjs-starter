@@ -12,7 +12,7 @@ This is a boilerplate for creating blogs using MDX and NextJS with Typescript. F
 - Write posts & pages in MDX format
 - Built-in post caching
 - Fuzzy search with tag filtering
-- Minimal styling (SCSS)
+- Minimal styling (SCSS - no tailwind)
 - Embed Gists
 - Automated post caching (pre-commit)
 
