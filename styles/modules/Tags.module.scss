@@ -4,7 +4,7 @@
 
 .tags {
     display: flex;
-    gap: $indent__base;
+    gap: $indent__s;
     @include listReset(); // abstracts/mixins/utilities.module.scss
 
     &__item {

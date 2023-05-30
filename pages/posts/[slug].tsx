@@ -60,7 +60,7 @@ const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
                     <div>
                         <h1>{frontMatter.title}</h1>
                         <p>{frontMatter.description}</p>
-                        <Tags />
+                        <Tags tags={frontMatter.tags} />
                     </div>
                 </div>
 

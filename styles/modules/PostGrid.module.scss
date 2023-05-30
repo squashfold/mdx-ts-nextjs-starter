@@ -1,4 +1,5 @@
 @import '../abstracts/variables/structure.scss';
+@import '../abstracts/variables/colors.scss';
 @import '../abstracts/mixins/structure.scss';
 @import '../abstracts/mixins/breakpoints.scss';
 
@@ -20,8 +21,21 @@
     }
 
     .post {
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: $indent__base;
+
+        &__thumbnail img {
+            box-shadow: $box-shadow__base;            
+        }
+
+        &__tags {
+            position: absolute;
+            z-index: 10;
+            top: $indent__base;
+            left: $indent__base;
+            right: $indent__base;
+        }
     }
 }

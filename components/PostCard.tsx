@@ -1,4 +1,5 @@
-import Thumbnail from '../components/Thumbnail';
+import Thumbnail from './Thumbnail';
+import Tags from './Tags';
 import Link from 'next/link'
 import type Keyable from '../interfaces/keyable'
 import PostGridStyles from '../styles/modules/PostGrid.module.scss';
@@ -11,13 +12,14 @@ type Props = {
 }
 
 const PostCard: React.FC<Props> = ({ post, loading }: Props) => {
-
+    console.log(post);
     // return the PostCard
     return (
         <>
             {(!loading && post) && (
                 <article key={post.slug ? post.slug : post.item.slug} className={`${PostGridStyles['post']}`}>
-                    <div> 
+                    <div className={`${PostGridStyles['post__thumbnail']}`}> 
+                        <div className={`${PostGridStyles['post__tags']}`}><Tags tags={post.tags} /></div>
                         <Thumbnail
                         slug={post.slug ? post.slug : post.item.slug}
                         title={post.title ? post.title : post.item.title}
@@ -30,7 +32,6 @@ const PostCard: React.FC<Props> = ({ post, loading }: Props) => {
                             <a>{post.title ? post.title : post.item.title}</a>
                             </Link>
                         </h3>
-
                         <p>{post.description ? post.description : post.item.description}</p>
                     </div>
                 </article>

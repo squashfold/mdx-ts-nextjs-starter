@@ -11,6 +11,7 @@
     user-select: none;
     font-size: $font-size__s;
     box-shadow: $box-shadow__base;
+    background-color: $white;
 
     &--active {
         background-color: $secondary-color;
