@@ -17,8 +17,8 @@ const PostGrid: React.FC<Props> = ({ posts, loading }: Props) => {
             <div className={`${PostGridStyles['post-grid']}`}>
                 {(!loading && posts.length) && (
                     <div className={`${PostGridStyles['post-grid__items']}`}>
-                    {posts.map((post: Keyable) => (
-                        <PostCard post={post} loading={false} />
+                    {posts.map((post: Keyable, index) => (
+                        <PostCard key={`post-${index}`} post={post} loading={false} />
                     ))}
                 </div>
                 )}

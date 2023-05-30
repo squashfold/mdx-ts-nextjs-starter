@@ -51,7 +51,7 @@ export default function Search() {
     const query = event.target.value;
     setQuery(query)
     getResults(query, tagsFilter)
-  }, [])
+  }, [getResults, tagsFilter, query])
   
   const loadMorePosts = (event: any) => {
     let postsToShow = morePosts.length + postsPerPage;
@@ -74,7 +74,7 @@ export default function Search() {
 
   useEffect(() => {
     getResults(query, tagsFilter);
-  }, [query, tagsFilter]);
+  }, [query, tagsFilter, getResults]);
 
   return (
     <div ref={searchRef}>
