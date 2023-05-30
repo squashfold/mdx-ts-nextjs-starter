@@ -19,7 +19,7 @@ export default function Search() {
   const [loaded, setLoaded] = useState<boolean>(false)
   const [morePosts, setMorePosts] = useState(results.slice(0, defaultPostsCount));
 
-  const getTags = morePosts.map(item => {
+  const getTags = results.map(item => {
     const container = item.tags ? item.tags : item.item.tags;
     return container;
   })
