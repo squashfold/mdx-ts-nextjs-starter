@@ -74,7 +74,7 @@ export default function Search() {
 
   useEffect(() => {
     getResults(query, tagsFilter);
-  }, [query, tagsFilter, getResults]);
+  }, [query, tagsFilter]);
 
   return (
     <div ref={searchRef}>
