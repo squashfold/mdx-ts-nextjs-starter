@@ -8,10 +8,13 @@ This is a boilerplate for creating blogs using MDX and NextJS with Typescript. F
 
 ### Features
 
-- Write posts in MDX format
+- Typescript
+- Write posts & pages in MDX format
 - Built-in post caching
-- Fuzzy search
-- Minimal styling (SCSS)
+- Fuzzy search with tag filtering
+- Minimal styling (SCSS - no tailwind)
+- Embed Gists
+- Automated post caching (pre-commit)
 
 ## Getting Started
 
@@ -39,17 +42,20 @@ npm run cache-posts
 
 ## TODO
 
-- [x] Implement Fuzzy search
-- [ ] Add tags to search filters  
 - [ ] Add breadcrumbs
 - [ ] SEO OG tags
   - [x] og:title for all pages/posts
   - [x] og:description for all pages/posts
   - [x] og:image for posts
   - [ ] og:type data for posts
+- [ ] Add loading states for search results
+- [ ] Format dates
 
+### Done
+- [x] Implement Fuzzy search
+- [x] Add tags to search filters  
 
 ## Credits and Acknowledgements
 This starter is inspired by Rose Chege's [static-nextjs-blog-with-typescript-mdx-tailwindcss](https://github.com/Rose-stack/static-nextjs-blog-with-typescript-mdx-tailwindcss)
 
-With search implementation inspired by Mat Swainson's [nextjs-blog-search-api](https://github.com/matswainson/nextjs-blog-search-api/tree/master), but now fuzzy
+With search implementation inspired by Mat Swainson's [nextjs-blog-search-api](https://github.com/matswainson/nextjs-blog-search-api/tree/master), but fuzzy
