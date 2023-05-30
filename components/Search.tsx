@@ -19,15 +19,17 @@ export default function Search() {
   const [loaded, setLoaded] = useState<boolean>(false)
   const [morePosts, setMorePosts] = useState(results.slice(0, defaultPostsCount));
 
-  const getTags = results.map(item => {
-    const container = item.tags ? item.tags : item.item.tags;
-    return container;
-  })
+  const getTags = (newResults: any[]) => {
+    return newResults.map(item => {
+      const container = item.tags ? item.tags : item.item.tags
+      return container
+    })
+  }
 
-  const [tags, setTags] = useState<any[]>([...new Set(getTags.join(",").split(","))]);
+  const [tags, setTags] = useState<any[]>([...new Set(getTags(results).join(",").split(","))]);
   const [tagsFilter, setTagsFilter] = useState<any[]>([]);
 
-  const searchEndpoint = (query: string, tags: string) => `/api/search?q=${query}&tags=${tags}` // &tags=${tags}
+  const searchEndpoint = (query: string, tags: string) => `/api/search?q=${query}&tags=${tags}`
 
   const getResults = (query: string, tags: string[]) => {
     console.log('get results is gone');
@@ -37,16 +39,13 @@ export default function Search() {
         .then(res => {
           setResults(res.results)
           setMorePosts(res.results.slice(0, defaultPostsCount))
-          // console.log(getTags);
-          // setTags([...new Set(getTags.join(",").split(","))])
         })
     } else {
       setResults(defaultPosts)
       setMorePosts(defaultPosts.slice(0, defaultPostsCount))
-      // setTags([...new Set(getTags.join(",").split(","))])
     }
-      console.log(getTags)
-      setTags([...new Set(getTags.join(",").split(","))])
+      console.log(results)
+      setTags([...new Set(getTags(defaultPosts).join(",").split(","))])
       setLoaded(true)
   }
 

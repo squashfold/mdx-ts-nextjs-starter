@@ -1,4 +1,5 @@
 @import '../../abstracts/variables/structure.scss';
+@import '../../abstracts/variables/typography.scss';
 @import '../../abstracts/variables/colors.scss';
 
 %pill {
@@ -8,9 +9,11 @@
     padding: $indent__xs $indent__base;
     text-align: center;
     user-select: none;
+    font-size: $font-size__s;
+    box-shadow: $box-shadow__base;
 
     &--active {
-        background-color: $secondary-color--accent;
+        background-color: $secondary-color;
         color: $color__text-bright;
     }
 }
