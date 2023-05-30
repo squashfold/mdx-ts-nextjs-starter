@@ -14,6 +14,7 @@ This is a boilerplate for creating blogs using MDX and NextJS with Typescript. F
 - Fuzzy search with tag filtering
 - Minimal styling (SCSS)
 - Embed Gists
+- Automated post caching (pre-commit)
 
 ## Getting Started
 
