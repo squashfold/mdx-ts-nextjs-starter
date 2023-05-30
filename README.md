@@ -41,8 +41,6 @@ npm run cache-posts
 
 ## TODO
 
-- [x] Implement Fuzzy search
-- [x] Add tags to search filters  
 - [ ] Add breadcrumbs
 - [ ] SEO OG tags
   - [x] og:title for all pages/posts
@@ -51,6 +49,9 @@ npm run cache-posts
   - [ ] og:type data for posts
 - [ ] Add loading states for search results
 
+### Done
+- [x] Implement Fuzzy search
+- [x] Add tags to search filters  
 
 ## Credits and Acknowledgements
 This starter is inspired by Rose Chege's [static-nextjs-blog-with-typescript-mdx-tailwindcss](https://github.com/Rose-stack/static-nextjs-blog-with-typescript-mdx-tailwindcss)
