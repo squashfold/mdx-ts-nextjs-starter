@@ -1,13 +1,46 @@
-@import '../abstracts/mixins/utilities.scss';
 @import '../abstracts/variables/structure.scss';
 @import '../abstracts/variables/colors.scss';
+@import '../abstracts/variables/typography.scss';
+@import '../abstracts/mixins/utilities.scss';
+@import '../abstracts/mixins/breakpoints.scss';
 
 .main-nav {
+    @include max-screen($screen__lg) {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: $header-height;
+        z-index: 98;
+        transition: all ease-in-out .1s;
+        background-color: transparent;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    &._active {
+        background-color: $white;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
 
     &__list {
         display: flex;
         gap: $indent__base;
         @include listReset(); // abstracts/mixins/utilities.module.scss
+
+        @include max-screen($screen__lg) {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            font-size: $font-size__6xl;
+            font-weight: $font-weight__bold;
+        }
     }
 
     // &__item {
@@ -29,5 +62,11 @@
         &:focus {
             top: 0;
         }
+    }
+}
+
+.menu-toggle {
+    @include min-screen($screen__lg) {
+        display: none !important;
     }
 }
