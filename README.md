@@ -51,6 +51,7 @@ npm run cache-posts
 - [ ] Add loading states for search results
 - [ ] Format dates
 - [ ] Mobile navigation
+- [ ] Remove 'any' types
 
 ### Done
 - [x] Implement Fuzzy search
