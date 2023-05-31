@@ -16,7 +16,8 @@ export default function Search() {
   const searchRef = useRef<HTMLInputElement>(null)
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<any[]>(defaultPosts)
-  const [loaded, setLoaded] = useState<boolean>(false)
+  const [loaded, setLoaded] = useState<boolean>(true)
+  const [loadingResults, setLoadingResults] = useState(false);
   const [morePosts, setMorePosts] = useState(results.slice(0, defaultPostsCount));
 
   const getTags = (newResults: any[]) => {
@@ -31,24 +32,50 @@ export default function Search() {
 
   const searchEndpoint = (query: string, tags: string) => `/api/search?q=${query}&tags=${tags}`
 
+  // const getResults = (query: string, tags: string[]) => {
+  //   if (loaded) {
+  //   setLoaded(false)
+  //   if (query.length || tags.length) {
+  //       fetch(searchEndpoint(query, encodeURIComponent(JSON.stringify(tags))))
+  //         .then(res => res.json())
+  //         .then(res => {
+  //           setResults(res.results)
+  //           setMorePosts(res.results.slice(0, defaultPostsCount))
+  //           setLoaded(true)
+  //         })
+  //     } else {
+  //       setResults(defaultPosts)
+  //       setMorePosts(defaultPosts.slice(0, defaultPostsCount))
+  //       setLoaded(true)
+  //     }
+  //       console.log(results)
+  //       setTags([...new Set(getTags(defaultPosts).join(",").split(","))])
+  //   }
+  // }
+
   const getResults = (query: string, tags: string[]) => {
-    setLoaded(false)
     if (query.length || tags.length) {
+      setLoaded(false);
       fetch(searchEndpoint(query, encodeURIComponent(JSON.stringify(tags))))
         .then(res => res.json())
         .then(res => {
-          setResults(res.results)
-          setMorePosts(res.results.slice(0, defaultPostsCount))
-          setLoaded(true)
+          setResults(res.results);
+          setMorePosts(res.results.slice(0, defaultPostsCount));
         })
+        .catch(error => {
+          // Handle the error here, such as displaying an error message or resetting the state
+          console.error('Error fetching search results:', error);
+          setResults([]);
+          setMorePosts([]);
+        })
+        .finally(() => {
+          setLoaded(true);
+        });
     } else {
-      setResults(defaultPosts)
-      setMorePosts(defaultPosts.slice(0, defaultPostsCount))
-      setLoaded(true)
+      setResults(defaultPosts);
+      setMorePosts(defaultPosts.slice(0, defaultPostsCount));
     }
-      console.log(results)
-      setTags([...new Set(getTags(defaultPosts).join(",").split(","))])
-  }
+  };
 
   const onChange = useCallback((event) => {
     const query = event.target.value;
@@ -76,6 +103,9 @@ export default function Search() {
   }
 
   useEffect(() => {
+    if (!loadingResults) {
+      setLoaded(true);
+    }
     getResults(query, tagsFilter);
   }, [query, tagsFilter]);
 
