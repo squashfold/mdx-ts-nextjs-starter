@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState, useEffect } from 'react'
+import debounce from 'lodash/debounce';
 
 import PostGrid from './PostGrid'
 import LoadMoreButton from './LoadMoreButton';
@@ -32,27 +33,6 @@ export default function Search() {
 
   const searchEndpoint = (query: string, tags: string) => `/api/search?q=${query}&tags=${tags}`
 
-  // const getResults = (query: string, tags: string[]) => {
-  //   if (loaded) {
-  //   setLoaded(false)
-  //   if (query.length || tags.length) {
-  //       fetch(searchEndpoint(query, encodeURIComponent(JSON.stringify(tags))))
-  //         .then(res => res.json())
-  //         .then(res => {
-  //           setResults(res.results)
-  //           setMorePosts(res.results.slice(0, defaultPostsCount))
-  //           setLoaded(true)
-  //         })
-  //     } else {
-  //       setResults(defaultPosts)
-  //       setMorePosts(defaultPosts.slice(0, defaultPostsCount))
-  //       setLoaded(true)
-  //     }
-  //       console.log(results)
-  //       setTags([...new Set(getTags(defaultPosts).join(",").split(","))])
-  //   }
-  // }
-
   const getResults = (query: string, tags: string[]) => {
     if (query.length || tags.length) {
       setLoaded(false);
@@ -63,7 +43,6 @@ export default function Search() {
           setMorePosts(res.results.slice(0, defaultPostsCount));
         })
         .catch(error => {
-          // Handle the error here, such as displaying an error message or resetting the state
           console.error('Error fetching search results:', error);
           setResults([]);
           setMorePosts([]);
@@ -77,11 +56,17 @@ export default function Search() {
     }
   };
 
+  const delayedGetResults = useCallback(
+    debounce((query: string, tags: string[]) => {
+      getResults(query, tags);
+    }, 250), []
+  );
+
   const onChange = useCallback((event) => {
     const query = event.target.value;
     setQuery(query)
-    getResults(query, tagsFilter)
-  }, [getResults, tagsFilter, query])
+    // getResults(query, tagsFilter)
+  }, [tagsFilter, query])
   
   const loadMorePosts = (event: any) => {
     let postsToShow = morePosts.length + postsPerPage;
@@ -106,8 +91,8 @@ export default function Search() {
     if (!loadingResults) {
       setLoaded(true);
     }
-    getResults(query, tagsFilter);
-  }, [query, tagsFilter]);
+    delayedGetResults(query, tagsFilter);
+  }, [query, tagsFilter, delayedGetResults]);
 
   return (
     <div ref={searchRef}>
@@ -131,6 +116,12 @@ export default function Search() {
           <LoadMoreButton postsVisible={morePosts.length} totalPosts={results.length} loadMorePosts={loadMorePosts} />
         </>
       ) }
+      {results.length === 0 && (
+        <div className={`container`}>
+          <h2>No results found</h2>
+          <p>Woops! try searching for something else</p>
+        </div>
+      )}
     </div>
   )
 }
