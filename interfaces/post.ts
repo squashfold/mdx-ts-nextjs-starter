@@ -7,4 +7,5 @@ export interface IPost {
     description:string;
     prerequisites:string[];
     tags:string[];
+    author:string;
 }

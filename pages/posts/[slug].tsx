@@ -55,17 +55,23 @@ const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
 
                 <div className={`${PostStyles['post-header']}`}>
                     <div>
-                        <Thumbnail title={frontMatter.title} src={frontMatter.thumbnail} />
+                        {frontMatter.thumbnail && <Thumbnail title={frontMatter.title ? frontMatter.title : ''} src={frontMatter.thumbnail} />}
                     </div>
                     <div>
-                        <h1>{frontMatter.title}</h1>
-                        <p>{frontMatter.description}</p>
-                        <Tags tags={frontMatter.tags} />
+                        {frontMatter.title && <h1>{frontMatter.title}</h1>}
+                        {frontMatter.description && <p>{frontMatter.description}</p>}
+                        {frontMatter.tags && <Tags tags={frontMatter.tags} />}
                     </div>
                 </div>
 
                 <MDXRemote components={components} {...source} />
             </article>
+
+            {(frontMatter.author || frontMatter.date) && (
+                <div className={`container`}>
+                    <p>Written { frontMatter.author && (<>by <span>{frontMatter.author}</span></>)} {frontMatter.date && (<> on <span>{frontMatter.date}</span></>)}</p>
+                </div>
+            )}
         </div>
     )
 }
