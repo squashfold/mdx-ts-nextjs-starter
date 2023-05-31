@@ -8,9 +8,13 @@ html,
 body {
   padding: 0;
   margin: 0;
-  
+
   * {
     box-sizing: border-box;
+
+    &:focus-visible {
+      outline: $border-width__buttons solid $primary-color;
+    }
   }
 }
 
