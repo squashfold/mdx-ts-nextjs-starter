@@ -15,23 +15,23 @@ const Header: React.FC = () => {
         <header className={`${HeaderStyles.header}`}>
             <div className={`container ${HeaderStyles['header__inner-wrap']}`}>
 
-                <Link href="#main">
+                <Link legacyBehavior href="#main">
                     <a className={`${NavigationStyles['main-nav__skip-link']}`}>Skip to content</a>
                 </Link>
 
-                <Link href="/">
+                <Link legacyBehavior href="/">
                     <a className=""><strong>{Config.title}</strong></a>
                 </Link>
 
                 <nav className={`${NavigationStyles['main-nav']} ${navOpen && NavigationStyles['_active']}`}>
                     <ul className={`${NavigationStyles['main-nav__list']}`}>
                         <li className={`${NavigationStyles['main-nav__item']}`}>
-                            <Link href="/about" prefetch={true}>
+                            <Link legacyBehavior href="/about" prefetch={true}>
                                 <a onClick={() => setNavOpen(false)} className={`${NavigationStyles['main-nav__link']}`}>About</a>
                             </Link>
                         </li>
                         <li className={`${NavigationStyles['main-nav__item']}`}>
-                            <Link href="/search" prefetch={true}>
+                            <Link legacyBehavior href="/search" prefetch={true}>
                                 <a onClick={() => setNavOpen(false)} className={`${NavigationStyles['main-nav__link']}`}>Search</a>
                             </Link>
                         </li>

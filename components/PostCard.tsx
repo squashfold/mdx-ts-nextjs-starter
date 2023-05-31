@@ -27,7 +27,7 @@ const PostCard: React.FC<Props> = ({ post, loading }: Props) => {
                     </div>
                     <div>
                         <h3 className={`h4`}>
-                            <Link href={`/posts/${post.slug ? post.slug : post.item.slug}`}>
+                            <Link legacyBehavior href={`/posts/${post.slug ? post.slug : post.item.slug}`}>
                             <a>{post.title ? post.title : post.item.title}</a>
                             </Link>
                         </h3>
