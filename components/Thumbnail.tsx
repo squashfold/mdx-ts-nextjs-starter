@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import ThumbnailStyles from '../styles/modules/ThumbnailStyles.module.scss';
 
 // Thumbnail properties
 type Props = {
@@ -20,6 +21,7 @@ const Thumbnail: React.FC<Props> = ({ title, src, slug}: Props) => {
         height={400}
         src={src}
         alt={`Thumbnail cover image ${title}`}
+        className={ThumbnailStyles['thumbnail']}
         />
     );
 
@@ -27,7 +29,7 @@ const Thumbnail: React.FC<Props> = ({ title, src, slug}: Props) => {
     return (
         <>
       {slug ? (
-        <Link href={`/posts/${slug}`}>
+        <Link legacyBehavior href={`/posts/${slug}`}>
           <a aria-label={title}>{image}</a>
         </Link>
       ) : (

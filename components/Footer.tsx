@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         <footer className={`${FooterStyles.footer}`}>
             <div className={`container ${FooterStyles['Footer__inner-wrap']}`}>
                 <span><strong>TypeScript MDX Blog Starter</strong> by SquashFold &nbsp;
-                    <Link href="https://github.com/chprince/mdx-ts-nextjs-starter">
+                    <Link legacyBehavior href="https://github.com/chprince/mdx-ts-nextjs-starter">
                         <a className="text-link text-link--bright">View on GitHub</a>
                     </Link>
                 </span>
