@@ -12,14 +12,13 @@ type Props = {
 }
 
 const PostCard: React.FC<Props> = ({ post, loading }: Props) => {
-    console.log(post);
     // return the PostCard
     return (
         <>
             {(!loading && post) && (
                 <article key={post.slug ? post.slug : post.item.slug} className={`${PostGridStyles['post']}`}>
                     <div className={`${PostGridStyles['post__thumbnail']}`}> 
-                        <div className={`${PostGridStyles['post__tags']}`}><Tags tags={post.tags} /></div>
+                        <div className={`${PostGridStyles['post__tags']}`}><Tags tags={post.tags ? post.tags : post.item.tags} /></div>
                         <Thumbnail
                         slug={post.slug ? post.slug : post.item.slug}
                         title={post.title ? post.title : post.item.title}

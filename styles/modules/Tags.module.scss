@@ -4,13 +4,14 @@
 
 .tags {
     display: flex;
-    gap: $indent__s;
+    flex-flow: row wrap;
+    gap: $indent__xs;
     @include listReset(); // abstracts/mixins/utilities.module.scss
 
     &__item {
-
         &.tags__item {
             @extend %pill;
+            @extend %pill--small;
         }
     }
 }

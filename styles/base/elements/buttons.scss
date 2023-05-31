@@ -18,7 +18,7 @@ input[type="submit"] {
 	color: $color__text-primary;
 	line-height: 1;
 	padding: $indent__s $indent__l;
-	font-weight: $font-weight__medium;
+	font-weight: $font-weight__bold;
 	font-size: $font-size__base;
 	text-decoration: none;
 
@@ -39,10 +39,6 @@ input[type="submit"] {
 .button {	
 	cursor: pointer;
 	transition: all ease-in-out .125s;
-
-	&:hover {
-		transform: scale(1.05);
-	}
 	
 	&--small {
 		padding: $indent__xs $indent__s;

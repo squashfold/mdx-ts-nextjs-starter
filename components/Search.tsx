@@ -32,21 +32,22 @@ export default function Search() {
   const searchEndpoint = (query: string, tags: string) => `/api/search?q=${query}&tags=${tags}`
 
   const getResults = (query: string, tags: string[]) => {
-    console.log('get results is gone');
+    setLoaded(false)
     if (query.length || tags.length) {
       fetch(searchEndpoint(query, encodeURIComponent(JSON.stringify(tags))))
         .then(res => res.json())
         .then(res => {
           setResults(res.results)
           setMorePosts(res.results.slice(0, defaultPostsCount))
+          setLoaded(true)
         })
     } else {
       setResults(defaultPosts)
       setMorePosts(defaultPosts.slice(0, defaultPostsCount))
+      setLoaded(true)
     }
       console.log(results)
       setTags([...new Set(getTags(defaultPosts).join(",").split(","))])
-      setLoaded(true)
   }
 
   const onChange = useCallback((event) => {

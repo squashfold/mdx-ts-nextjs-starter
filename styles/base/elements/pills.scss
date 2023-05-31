@@ -5,16 +5,22 @@
 %pill {
 	border: $border-width__buttons solid;
 	border-color: $color__border-button;
-	border-radius: $border-radius__buttons;
+    display: inline-block;
     padding: $indent__xs $indent__base;
     text-align: center;
     user-select: none;
     font-size: $font-size__s;
-    box-shadow: $box-shadow__base;
     background-color: $white;
 
     &--active {
         background-color: $secondary-color;
+        color: $color__text-bright;
+    }
+
+    &--small {
+        padding: $indent__xs $indent__s;
+        font-size: $font-size__xs;
+        background-color: $color__border-button;
         color: $color__text-bright;
     }
 }

@@ -1,8 +1,6 @@
-import {useMdxComponentsContext} from "../context/mdxContext";
 import Gist from "react-gist";
 
 type Props = {
-    // children?: React.ReactNode
     id: string
 }
 

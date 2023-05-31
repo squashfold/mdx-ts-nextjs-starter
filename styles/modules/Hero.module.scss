@@ -4,11 +4,11 @@
 @import '../abstracts/mixins/breakpoints.scss';
 
 .hero {   
-    background-color: $white--shade; 
+    background-color: $light-grey; 
 
     &__inner-wrap {
         @include container;
-        min-height: 300px;
+        min-height: 460px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
