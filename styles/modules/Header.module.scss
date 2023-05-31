@@ -1,5 +1,7 @@
-@import '../abstracts/mixins/structure.scss';
+@import '../abstracts/variables/structure.scss';
 @import '../abstracts/variables/colors.scss';
+@import '../abstracts/mixins/structure.scss';
+@import '../abstracts/mixins/breakpoints.scss';
 
 .header {
     background-color: $primary-color--accent;
@@ -9,6 +11,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        min-height: 80px;
+        min-height: $header-height;
+    }
+    
+    @include max-screen($screen__lg) {
+        position: sticky;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 99;
     }
 }
