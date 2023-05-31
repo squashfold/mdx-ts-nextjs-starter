@@ -39,7 +39,8 @@ export default function Search() {
       fetch(searchEndpoint(query, encodeURIComponent(JSON.stringify(tags))))
         .then(res => res.json())
         .then(res => {
-          setResults(res.results);
+          setResults(res.results)
+          setTags([...new Set(getTags(res.results).join(",").split(","))])
           setMorePosts(res.results.slice(0, defaultPostsCount));
         })
         .catch(error => {
@@ -53,6 +54,7 @@ export default function Search() {
     } else {
       setResults(defaultPosts);
       setMorePosts(defaultPosts.slice(0, defaultPostsCount));
+      setTags([...new Set(getTags(defaultPosts).join(",").split(","))])
     }
   };
 
@@ -110,7 +112,7 @@ export default function Search() {
       { results.length > 0 && (
         <>
           <div className={`container`}>
-            <TagsFilter tags={tags} handleTagChange={handleTagChange} />
+            <TagsFilter tags={tags} active={tagsFilter} handleTagChange={handleTagChange} />
           </div>
           <PostGrid posts={morePosts} key={'item'} loading={!loaded} />
           <LoadMoreButton postsVisible={morePosts.length} totalPosts={results.length} loadMorePosts={loadMorePosts} />
