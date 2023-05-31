@@ -52,6 +52,8 @@ npm run cache-posts
 - [ ] Mobile navigation
 - [ ] Remove 'any' types
 - [ ] Use query params on search page
+- [ ] Add filter for authors
+- [ ] Category structure
 
 ### Done
 - [x] Implement Fuzzy search
