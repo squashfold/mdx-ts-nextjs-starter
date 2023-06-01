@@ -58,7 +58,8 @@ npm run cache-posts
 ### Done
 - [x] Implement Fuzzy search
 - [x] Add tags to search filters
-- [x] Add loading states for search results  
+- [x] Add loading states for search results
+- [x] Upgrade to Next 13  
 
 ## Credits and Acknowledgements
 This starter is inspired by Rose Chege's [static-nextjs-blog-with-typescript-mdx-tailwindcss](https://github.com/Rose-stack/static-nextjs-blog-with-typescript-mdx-tailwindcss)
