@@ -49,17 +49,18 @@ npm run cache-posts
   - [x] og:image for posts
   - [ ] og:type data for posts
 - [ ] Format dates
-- [ ] Mobile navigation
 - [ ] Remove 'any' types
 - [ ] Use query params on search page
 - [ ] Add filter for authors
 - [ ] Category structure
+- [ ] Refactor GistEmbedHelper.js to TypeScript
 
 ### Done
 - [x] Implement Fuzzy search
 - [x] Add tags to search filters
 - [x] Add loading states for search results
 - [x] Upgrade to Next 13  
+- [x] Mobile navigation
 
 ## Credits and Acknowledgements
 This starter is inspired by Rose Chege's [static-nextjs-blog-with-typescript-mdx-tailwindcss](https://github.com/Rose-stack/static-nextjs-blog-with-typescript-mdx-tailwindcss)
