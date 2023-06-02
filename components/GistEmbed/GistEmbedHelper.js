@@ -107,6 +107,7 @@ export default class ReactEmbedGist extends Component {
       contentClass,
       errorClass,
       loadingFallback,
+      showTitle,
     } = this.props;
 
     if (this.state.loading) {
@@ -120,7 +121,7 @@ export default class ReactEmbedGist extends Component {
     } else {
       return (
         <div className={wrapperClass}>
-          {(this.state.title) && <h2 className={titleClass}>{this.state.title}</h2>}
+          {(this.state.title && showTitle) && <h2 className={titleClass}>{this.state.title}</h2>}
           <section
             className={contentClass}
             dangerouslySetInnerHTML={{ __html: this.state.content }}
