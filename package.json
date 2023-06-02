@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.0.1",
     "autoprefixer": "^10.4.0",
     "fuse.js": "^6.6.2",
     "gray-matter": "^4.0.3",
@@ -39,5 +40,5 @@
       "pre-commit": "npm cache-posts"
     }
   },
-  "version": "2.1.0"
+  "version": "2.1.1"
 }
