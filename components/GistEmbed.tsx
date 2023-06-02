@@ -1,4 +1,4 @@
-import Gist from "react-gist";
+import EmbedGist from './GistEmbed/GistEmbedHelper';
 
 type Props = {
     id: string
@@ -6,9 +6,10 @@ type Props = {
 
 const GistEmbed = ({ id }: Props) => {
     const gistId = id;
+
     return (
         <>
-            <Gist id={gistId} />
+            <EmbedGist gist={`${gistId}`} />
         </>
     )
 }

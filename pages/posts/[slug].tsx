@@ -1,15 +1,15 @@
-import { serialize } from 'next-mdx-remote/serialize';
-import { GetStaticProps, GetStaticPaths } from 'next';
-import Head from 'next/head';
-import { useEffect } from 'react';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { useMdxComponentsContext } from '../../context/mdxContext';
-import Thumbnail from '../../components/Thumbnail';
-import { IPost } from '../../interfaces/post';
-import { getPost, getAllPosts } from '../../utils/mdxUtils';
-import { ParsedUrlQuery } from 'querystring';
-import Tags from '../../components/Tags';
-import GistEmbed from '../../components/GistEmbed';
+import { serialize } from 'next-mdx-remote/serialize'
+import { GetStaticProps, GetStaticPaths } from 'next'
+import Head from 'next/head'
+import { useEffect } from 'react'
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { useMdxComponentsContext } from '../../context/mdxContext'
+import Thumbnail from '../../components/Thumbnail'
+import { IPost } from '../../interfaces/post'
+import { getPost, getAllPosts } from '../../utils/mdxUtils'
+import { ParsedUrlQuery } from 'querystring'
+import Tags from '../../components/Tags'
+import GistEmbed from '../../components/GistEmbed'
 import Config from "../../app.config"
 
 import PostStyles from '../../styles/modules/Post.module.scss';
@@ -17,7 +17,7 @@ import PostStyles from '../../styles/modules/Post.module.scss';
 // props type
 type Props = {
     source: MDXRemoteSerializeResult,
-    frontMatter: Omit<IPost, 'slug'>;
+    frontMatter: Omit<IPost, 'slug'>
 }
 
 // components to render
@@ -32,9 +32,9 @@ const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
 
     useEffect(() => {
         // set prerequisites
-        setPrerequisites!(frontMatter.prerequisites);
+        setPrerequisites!(frontMatter.prerequisites)
         // set tags
-        setTags!(frontMatter.tags);
+        setTags!(frontMatter.tags)
     }, [
         setPrerequisites,
         setTags,
@@ -88,7 +88,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     // get the slug
     const { content, data } = getPost(slug);
     // serialize the data on the server side
-    const mdxSource = await serialize(content, { scope: data });
+    const mdxSource = await serialize(content, { scope: data })
     return {
         props: {
             source: mdxSource,
