@@ -1,34 +1,7 @@
 @import '../abstracts/variables/typography.scss';
 @import '../abstracts/variables/structure.scss';
-@import '../abstracts/variables/colors.scss';
-@import '../abstracts/mixins/breakpoints.scss';
 
-body {
-	font-family: $font__main;
-}
-
-pre {
-	background: $light-grey;
-    padding: $indent__base;
-    border-radius: $border-radius__pre;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	clear: both;
-	margin: 0;
-	margin-bottom: 0;
-
-	+ p {
-		margin-top: $indent__base;
-	}
-}
-
-.h1, h1 {
+%h1 {
 	font-family: $font__headings;
 	font-size: $font-size__xl;
 	font-weight: $font-weight__extrabold;
@@ -43,7 +16,7 @@ h6 {
 	}
 }
 
-.h2, h2 {
+%h2 {
 	font-family: $font__headings;
 	font-size: $font-size__3xl;
 	line-height: $font__line-height__4xl;
@@ -59,7 +32,7 @@ h6 {
 	}
 }
 
-.h3, h3 {
+%h3 {
 	font-family: $font__headings;
 	line-height: $font__line-height__2xl;
 	margin-bottom: 0;
@@ -74,7 +47,7 @@ h6 {
 	}
 }
 
-.h4, h4 {
+%h4 {
 	font-family: $font__headings;
 	font-size: $font-size__2xl;
 	line-height: $font__line-height__xl;
@@ -89,13 +62,13 @@ h6 {
 	}
 }
 
-.h5, h5 {
+%h5 {
 	font-family: $font__headings;
 	font-size: $font-size__2xl;
 	font-weight: $font-weight__medium;
 }
 
-.h6, h6 {
+%h6 {
 	font-family: $font__main;
 	font-size: $font-size__l;
 	line-height: $font__line-height__l;
